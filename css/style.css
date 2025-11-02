@@ -1,0 +1,1101 @@
+@charset "UTF-8";
+
+/* path-animation-css */
+.shake-bottom {
+  animation: shake-bottom 9s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  20%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+/* section-head */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  color: var(--main-color);
+}
+
+/* head-info */
+.head-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* work-info */
+.work-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+/* +++++++++++++++++++++++++++++++ */
+
+.plus {
+  font-weight: 600;
+  color: #fff;
+
+  background: var(--black-color);
+  border-radius: 50px;
+  padding: 20px 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  transition: 0.5s;
+}
+
+.plus::after {
+  content: none;
+  transition: 0.5s;
+}
+
+.plus::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  background-image: linear-gradient(#fff), linear-gradient(#fff);
+  background-size: 2.5px 100%, 100% 2.5px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  flex: 0 0 auto;
+}
+
+/* hover state: 텍스트 색상을 메인 컬러로 변경, 배경은 아이보리로 바꿔 가독성 유지 */
+.plus:hover {
+  color: var(--black-color);
+  background: #fff;
+  border: 3px solid var(--black-color);
+}
+
+.plus:hover::after {
+  /* 아이콘 색상을 블랙 컬러로 변경 */
+  background-image: linear-gradient(var(--black-color)),
+    linear-gradient(var(--black-color));
+}
+
+/* =====================================nav */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 120px;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  transform: translateY(-100%);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s;
+}
+
+.nav .inner {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  gap: 90px;
+}
+
+.nav ul {
+  display: flex;
+  gap: 45px;
+}
+
+.nav ul a {
+  background: var(--black-color);
+  padding: 15px 20px;
+  border-radius: 50px;
+
+  color: var(--ivory-color);
+
+  transition: 0.5s;
+}
+
+.nav ul a:hover {
+  background: var(--ivory-color);
+  padding: 10px 20px;
+  border: 3px solid var(--main-color);
+  border-radius: 50px;
+
+  color: var(--main-color);
+}
+
+.nav a {
+  height: 63px;
+  background: url(../img/logo.png);
+}
+
+.nav a:hover {
+  height: 63px;
+  background: url(../img/logo.png);
+  background: var(--main-color);
+}
+
+.nav a img {
+  height: 100%;
+  background: url(../img/logo.png) 0 0 100%;
+}
+
+/* ======================================main */
+.main {
+  position: relative;
+}
+
+/* ===========================================hero */
+#hero {
+  height: 100vh;
+  background: var(--ivory-color);
+
+  display: flex;
+  align-items: center;
+}
+
+#hero .inner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  color: var(--main-color);
+}
+
+#hero .visual-title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 40px;
+}
+
+#hero .visual-title h2 {
+  font-size: 150px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+#hero .visual-title h4 {
+  font-family: var(--main-font);
+  font-size: 30px;
+  font-weight: 200;
+}
+
+#hero .visual-img {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-top: 100px;
+}
+
+#hero figure svg {
+  overflow: visible;
+  width: 100%;
+}
+
+#hero figure {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 50px;
+}
+
+#hero figure::after {
+  content: "";
+  background: var(--main-color);
+
+  width: 200px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  opacity: 50%;
+}
+
+/* ============================================about */
+#about {
+  height: 100vh;
+
+  background: var(--black-color);
+
+  display: flex;
+  align-items: center;
+}
+
+#about .inner {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--ivory-color);
+}
+
+#about .leeyujin {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 61px;
+}
+
+#about .leeyujin dl {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 20px;
+
+  color: var(--main-color);
+}
+
+#about .leeyujin dl dt {
+  font-family: var(--main-font);
+  font-size: 20px;
+}
+
+#about .leeyujin dl dd {
+  font-size: 25px;
+}
+
+#about .leeyujin address {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#about .leeyujin figure {
+  width: 200px;
+  height: 400px;
+}
+#about .leeyujin img {
+  width: 100%;
+  height: 100%;
+}
+
+#about .career::before {
+  content: "";
+  position: absolute;
+
+  background: url(../img/pepersimmon-i-seed.png) 50% 50% no-repeat;
+  background-size: contain;
+  left: -40%;
+  bottom: 0%;
+  width: 250px;
+  height: 250px;
+
+  z-index: 5;
+}
+
+#about .career::after {
+  content: "";
+  position: absolute;
+
+  background: url(../img/persimmon-main-w.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  right: -18%;
+  bottom: -25%;
+
+  width: 700px;
+  height: 700px;
+
+  opacity: 5%;
+}
+
+#about .career {
+  position: relative;
+
+  width: 969px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#about .career h4 {
+  color: var(--main-color);
+}
+
+#about .education {
+  display: flex;
+  justify-content: space-between;
+}
+
+#about .education dl {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#about .education .education-item {
+  width: 686px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#about .experience {
+  display: flex;
+  justify-content: space-between;
+}
+
+#about .experience dl {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#about .experience .experience-item {
+  width: 686px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#about .skills {
+  display: flex;
+  justify-content: space-between;
+}
+
+#about .skills ul {
+  width: 686px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===========================================uiux */
+
+#uiux {
+  background: #fff;
+
+  padding: 120px 0;
+}
+
+#uiux .inner {
+  border: 5px solid #f00;
+  height: 100%;
+}
+
+#uiux .inner h3::before {
+  content: "";
+  background: url(../img/persimmon-uxui.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  width: 160px;
+  aspect-ratio: 573/418;
+}
+
+#uiux .inner h3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 0 0 80px 0;
+}
+
+#uiux .uiux-wrap {
+  border: 5px solid #101cc4;
+  height: 100vh;
+}
+
+#uiux .head-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#uiux ul {
+  margin-top: 20px;
+
+  position: relative;
+  perspective: 1000px;
+}
+
+#uiux ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  /* 뒤집혔을 때 숨김 */
+  backface-visibility: hidden;
+  transform-origin: 50% 100%;
+  border: 1px solid #000;
+}
+
+#uiux ul li .card-body {
+  border-radius: 70px;
+
+  position: relative;
+  overflow: hidden;
+  height: 700px;
+  background: #f5f5f5;
+
+  box-shadow: 0px 1px 20px #56565686;
+}
+
+#uiux ul li .project-info {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+
+  /* padding: 0 0 0 100px; */
+
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  /* background: pink; */
+
+  z-index: 10;
+}
+
+#uiux ul li .project-info > figure {
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#uiux ul li .mockup {
+  width: 100%;
+  height: 100%;
+}
+
+#uiux ul li .mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 70px;
+}
+
+/* ===============================================craft */
+
+#craft {
+  background: var(--black-color);
+
+  text-align: center;
+
+  border: 15px solid #03e461;
+}
+
+#craft h3 {
+  padding-bottom: 80px;
+}
+#craft h3::before {
+  content: "";
+  background: url(../img/persimmon-i-tree.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  width: 250px;
+
+  aspect-ratio: 778/861;
+}
+
+#craft .living {
+  height: 100vh;
+
+  color: var(--ivory-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 20px;
+
+  border: 1px solid #e9dcdc;
+}
+
+#craft .craft-wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  gap: 20px;
+  border: 3px solid #a9be2f;
+}
+
+#craft .craft-wrap ul {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  border: 3px solid #3bf789;
+  display: flex;
+  flex-shrink: 0;
+  gap: 50px;
+
+  padding-left: 500px;
+}
+
+#craft .craft-wrap figure {
+  flex-shrink: 0; /* 크기고정 */
+  width: 500px;
+  aspect-ratio: 4/5; /* 비율 */
+}
+
+#craft .craft-wrap figure img {
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  box-shadow: 0px 1px 20px #0000007e;
+}
+
+#craft .content-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+#craft .plus {
+  color: var(--black-color);
+  background: var(--ivory-color);
+}
+
+#craft .plus::after {
+  background-image: linear-gradient(var(--black-color)),
+    linear-gradient(var(--black-color));
+}
+
+#craft .plus:hover {
+  color: var(--main-color);
+  background: var(--black-color);
+  border: 3px solid var(--main-color);
+}
+
+#craft .plus:hover::after {
+  background-image: linear-gradient(var(--main-color)),
+    linear-gradient(var(--main-color));
+}
+
+/* ==================================textile */
+#textile {
+  background: #fff;
+}
+
+#textile .inner {
+  border: 1px solid #000;
+}
+
+#textile .pattern {
+  display: flex;
+  justify-content: space-between;
+}
+
+#textile .section-head {
+  position: relative;
+
+  border: 5px solid #e20000;
+}
+
+#textile .head-info {
+  color: var(--black-color);
+}
+#textile .head-info::before {
+  content: "";
+  background: url(../img/persimmon-branch.png) 50% 50% no-repeat;
+  background-size: contain;
+  transform: rotate(15deg);
+
+  width: 403px;
+  height: 403px;
+
+  position: absolute;
+  top: 20%;
+  left: -20%;
+}
+
+#textile .section-head::after {
+  content: "";
+  background: url(../img/persimmon-hand.png) 50% 50% no-repeat;
+  background-size: contain;
+  transform: rotate(90deg);
+
+  width: 403px;
+  height: 403px;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+}
+
+#textile .work-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#textile ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex: 3;
+
+  gap: 24px;
+
+  border: 5px solid #0ca807;
+}
+
+#textile ul li {
+  width: 363px;
+  height: 572px;
+  position: relative;
+  overflow: hidden;
+}
+
+#textile ul li img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* 호버 효과 - 검은 오버레이와 텍스트 */
+#textile ul li::after {
+  content: attr(data-name);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(96, 37, 0, 0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+#textile ul li:hover::after {
+  opacity: 1;
+}
+
+#textile ul li:hover img {
+  transform: scale(1.05);
+}
+
+/* ==========================================character */
+
+#character {
+  background: var(--black-color);
+}
+
+#character .inner {
+  text-align: center;
+}
+
+#character .project-wrap {
+  margin-top: 100px;
+
+  border: 1px solid #921b1b;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* 원하는 간격으로 조정 */
+
+  height: 100%;
+}
+
+#character .project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 20px;
+
+  border: 5px solid #00b7ff;
+
+  height: 100vh;
+}
+
+#character .head-info {
+  color: var(--ivory-color);
+
+  text-align: center;
+}
+
+#character .work-info {
+  margin-top: 20px;
+}
+/* ======character 영역!! */
+#character .ai .ai-about {
+  border: 55px solid #4c00ff;
+  position: relative;
+
+  height: 800px;
+  width: 100%;
+}
+
+#character .ai .ai-about > li {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+#character .ai .ai-about .intro {
+}
+#character .ai .ai-about .type {
+  top: -25px;
+}
+#character .ai .ai-about .mockup {
+  top: -50px;
+}
+
+/* ==========mafra 영역!! */
+#character .mafra .mafra-about {
+  position: relative;
+
+  border: 55px solid #4c00ff;
+
+  height: 800px;
+  width: 100%;
+}
+
+#character .mafra .mafra-about > li {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+#character .mafra .mafra-about .intro {
+}
+#character .mafra .mafra-about .type {
+  top: -25px;
+}
+#character .mafra .mafra-about .mockup {
+  top: -50px;
+}
+
+#character .project > ol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+#character .project > ol > li {
+  background: #fff;
+  width: 1680px;
+  height: 735px;
+
+  border-radius: 70px;
+
+  padding: 120px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  box-shadow: 0px 1px 20px #56565686;
+  border: 9px solid #a7e46e;
+}
+
+/* 카드 이너 */
+
+#character .intro-flex {
+  width: 822px;
+
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+#character .intro-flex figure {
+  height: 245px;
+}
+
+#character .intro-flex figure img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#character .ai-about h4 {
+  color: var(--main-color);
+}
+
+#character .intro-about dl {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 15px;
+
+  margin-top: 50px;
+}
+
+#character .intro-about dl dt {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#character .characters {
+  margin-top: 74px;
+
+  display: flex;
+  align-items: center;
+}
+
+#character .characters figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#character .type ul {
+  margin-top: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 63px;
+}
+
+#character .mockup ul {
+  margin-top: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+#character .mafra-about h4 {
+  color: #0c8b50;
+}
+
+#character img {
+  width: 100px;
+
+  background-size: contain;
+}
+
+/* =======================================banner */
+#banner {
+  background: #fff;
+}
+
+#banner .promotion {
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+#banner h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+
+  text-align: center;
+  color: var(--main-color);
+}
+
+#banner h3::before {
+  content: "";
+  background: url(../img/persimmon-branch.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  width: 208px;
+  aspect-ratio: 1036/897;
+}
+
+#banner .head-info {
+  color: var(--black-color);
+  border: 5px solid #b61919;
+}
+
+#banner .banner-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  border: 5px solid #19b648;
+}
+
+#banner ul {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+
+  border: 1px solid #ffd900;
+
+  transition-timing-function: linear; /* 마키효과!!!! */
+}
+
+#banner ul li {
+  width: 350px;
+  border: 1px solid #ff0000;
+  position: relative;
+
+  overflow: hidden;
+}
+#banner ul li figure {
+  overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+#banner ul li figure img {
+  width: 100%;
+  object-fit: contain;
+}
+
+#banner ul li .fig-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: flex; /* 미리 설정 */
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 100%;
+  height: 143px;
+  background: #ffffffa2;
+  padding: 20px 24px;
+
+  transform: translateY(100%); /* 아래로 숨김 */
+  opacity: 0;
+
+  transition: 0.4s;
+}
+
+#banner ul li:hover .fig-info {
+  transform: translateY(0); /* 위로 올라옴 */
+  opacity: 1;
+}
+
+#banner ul li .fig-info strong {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* 화살표 공통 스타일 */
+#banner .slider-btns .btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border-left: 4px solid var(--ivory-color);
+  border-bottom: 4px solid var(--ivory-color);
+}
+
+#banner .slider-btns .btn:hover span {
+  border-left-color: var(--main-color);
+  border-bottom-color: var(--main-color);
+}
+
+/* 이전 버튼 화살표 */
+#banner .slider-btns .btn.prev span {
+  transform: translate(-40%, -50%) rotate(45deg);
+}
+
+/* 다음 버튼 화살표 */
+#banner .slider-btns .btn.next span {
+  transform: translate(-60%, -50%) rotate(-135deg);
+}
+
+/* end */
+
+#end {
+  height: 100vh;
+
+  padding: 220px 0;
+  background: var(--ivory-color);
+}
+
+#end .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+#end figure {
+  width: 320px;
+}
+
+#end figure img {
+  width: 100%;
+  background-size: contain;
+}
+
+#end .end-text {
+  color: var(--main-color);
+  margin-top: 70px;
+}
+
+#end .end-text h4 {
+  font-family: var(--main-font);
+}
+
+#end .end-text p {
+  margin-top: 20px;
+}
+
+#end .end-text p strong {
+  font-weight: 700;
+}

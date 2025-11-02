@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 부드러운 앵커 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "EutmanGungseo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/OKGUNG.woff2")
+    format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+:root {
+  --main-color: #ea6f38;
+  --black-color: #333333;
+  --ivory-color: #faf6ec;
+
+  --main-font: "EutmanGungseo";
+}
+
+body {
+  line-height: 1.5;
+  text-transform: capitalize;
+  font-family: "pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black-color);
+}
+
+/* 전체 페이지에서 가로 스크롤 방지 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1680px; /* 고정 폭 대신 최대 폭으로 변경하여 작은 화면에서 가로 스크롤 방지 */
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+address {
+  font-style: normal;
+}
+
+h3 {
+  font-family: "EutmanGungseo";
+  font-size: 82px;
+
+  color: var(--main-color);
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* ----------공통 정의 */
+
+section {
+  padding: 120px 0;
+}
+
+::selection {
+  background: var(--main-color);
+  color: var(--ivory-color);
+}
+
+/* 기본 커서 숨기기 */
+* {
+  cursor: none !important;
+}
+
+/* custom-cursor */
+.custom-cursor {
+  width: 25px;
+  height: 25px;
+  border: 5px solid #ea6f38;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+  width: 50px;
+  height: 50px;
+  background: rgba(234, 111, 56, 0.2);
+  border: 5px solid #ea6f38;
+}
