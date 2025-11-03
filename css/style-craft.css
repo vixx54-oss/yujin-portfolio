@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+.craft-page h3 {
+  padding-bottom: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.craft-page h3::before {
+  content: "";
+  display: block;
+
+  background: url(../img/persimmon-i-tree.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  width: 250px;
+  aspect-ratio: 778/861;
+}
+
 .craft-page {
   padding: 180px 0;
 }

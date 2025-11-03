@@ -176,7 +176,6 @@
 /* ===========================================hero */
 #hero {
   height: 100vh;
-  background: var(--ivory-color);
 
   display: flex;
   align-items: center;
@@ -296,12 +295,13 @@
 }
 
 #about .leeyujin figure {
-  width: 200px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
 }
 #about .leeyujin img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 #about .career::before {
@@ -401,7 +401,7 @@
 }
 
 #uiux .inner {
-  border: 5px solid #f00;
+  /* border: 5px solid #f00; */
   height: 100%;
 }
 
@@ -415,8 +415,11 @@
 }
 
 #uiux .inner h3 {
+  height: 100vh;
+
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 15px;
 
@@ -424,7 +427,7 @@
 }
 
 #uiux .uiux-wrap {
-  border: 5px solid #101cc4;
+  /* border: 5px solid #101cc4; */
   height: 100vh;
 }
 
@@ -453,7 +456,7 @@
   /* 뒤집혔을 때 숨김 */
   backface-visibility: hidden;
   transform-origin: 50% 100%;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 #uiux ul li .card-body {
@@ -513,19 +516,27 @@
 
   text-align: center;
 
-  border: 15px solid #03e461;
+  /* border: 15px solid #03e461; */
 }
 
 #craft h3 {
+  height: 100vh;
   padding-bottom: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
+
 #craft h3::before {
   content: "";
+  display: block;
+
   background: url(../img/persimmon-i-tree.png) 50% 50% no-repeat;
   background-size: contain;
 
   width: 250px;
-
   aspect-ratio: 778/861;
 }
 
@@ -540,7 +551,7 @@
 
   gap: 20px;
 
-  border: 1px solid #e9dcdc;
+  /* border: 1px solid #e9dcdc; */
 }
 
 #craft .craft-wrap {
@@ -550,14 +561,14 @@
   flex-direction: column;
 
   gap: 20px;
-  border: 3px solid #a9be2f;
+  /* border: 3px solid #a9be2f; */
 }
 
 #craft .craft-wrap ul {
   /* position: absolute; */
   top: 0;
   left: 0;
-  border: 3px solid #3bf789;
+  /* border: 3px solid #3bf789; */
   display: flex;
   flex-shrink: 0;
   gap: 50px;
@@ -617,7 +628,7 @@
 }
 
 #textile .inner {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 #textile .pattern {
@@ -628,7 +639,7 @@
 #textile .section-head {
   position: relative;
 
-  border: 5px solid #e20000;
+  /* border: 5px solid #e20000; */
 }
 
 #textile .head-info {
@@ -645,7 +656,7 @@
 
   position: absolute;
   top: 20%;
-  left: -20%;
+  left: -30%;
 }
 
 #textile .section-head::after {
@@ -675,7 +686,7 @@
 
   gap: 24px;
 
-  border: 5px solid #0ca807;
+  /* border: 5px solid #0ca807; */
 }
 
 #textile ul li {
@@ -699,7 +710,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(96, 37, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   display: flex;
   align-items: center;
@@ -725,6 +736,28 @@
   background: var(--black-color);
 }
 
+#character h3 {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+#character h3::before {
+  content: "";
+  display: block;
+
+  background: url(../img/persimmon-tree-b.png) 50% 50% no-repeat;
+  background-size: contain;
+
+  width: 308px;
+  aspect-ratio: 681/672;
+}
+
 #character .inner {
   text-align: center;
 }
@@ -732,7 +765,7 @@
 #character .project-wrap {
   margin-top: 100px;
 
-  border: 1px solid #921b1b;
+  /* border: 1px solid #921b1b; */
   display: flex;
   flex-direction: column;
   gap: 100px; /* 원하는 간격으로 조정 */
@@ -746,9 +779,9 @@
   justify-content: center;
   flex-direction: column;
 
-  gap: 20px;
+  gap: 70px;
 
-  border: 5px solid #00b7ff;
+  /* border: 5px solid #00b7ff; */
 
   height: 100vh;
 }
@@ -764,10 +797,10 @@
 }
 /* ======character 영역!! */
 #character .ai .ai-about {
-  border: 55px solid #4c00ff;
+  /* border: 55px solid #4c00ff; */
   position: relative;
 
-  height: 800px;
+  height: 675px;
   width: 100%;
 }
 
@@ -782,19 +815,19 @@
 #character .ai .ai-about .intro {
 }
 #character .ai .ai-about .type {
-  top: -25px;
+  top: 25px;
 }
 #character .ai .ai-about .mockup {
-  top: -50px;
+  top: 50px;
 }
 
 /* ==========mafra 영역!! */
 #character .mafra .mafra-about {
   position: relative;
 
-  border: 55px solid #4c00ff;
+  /* border: 55px solid #4c00ff; */
 
-  height: 800px;
+  height: 675px;
   width: 100%;
 }
 
@@ -809,10 +842,10 @@
 #character .mafra .mafra-about .intro {
 }
 #character .mafra .mafra-about .type {
-  top: -25px;
+  top: 25px;
 }
 #character .mafra .mafra-about .mockup {
-  top: -50px;
+  top: 50px;
 }
 
 #character .project > ol {
@@ -827,7 +860,7 @@
 #character .project > ol > li {
   background: #fff;
   width: 1680px;
-  height: 735px;
+  height: 600px;
 
   border-radius: 70px;
 
@@ -839,7 +872,7 @@
   flex-direction: column;
 
   box-shadow: 0px 1px 20px #56565686;
-  border: 9px solid #a7e46e;
+  /* border: 9px solid #a7e46e; */
 }
 
 /* 카드 이너 */
@@ -940,11 +973,12 @@
 }
 
 #banner h3 {
+  height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 15px;
 
   text-align: center;
   color: var(--main-color);
@@ -952,16 +986,18 @@
 
 #banner h3::before {
   content: "";
+  display: block;
+
   background: url(../img/persimmon-branch.png) 50% 50% no-repeat;
   background-size: contain;
 
-  width: 208px;
+  width: 308px;
   aspect-ratio: 1036/897;
 }
 
 #banner .head-info {
   color: var(--black-color);
-  border: 5px solid #b61919;
+  /* border: 5px solid #b61919; */
 }
 
 #banner .banner-slider {
@@ -969,7 +1005,7 @@
   width: 100%;
   overflow: hidden;
 
-  border: 5px solid #19b648;
+  /* border: 5px solid #19b648; */
 }
 
 #banner ul {
@@ -977,25 +1013,29 @@
   align-items: center;
   padding: 20px 0;
 
-  border: 1px solid #ffd900;
+  /* border: 1px solid #ffd900; */
 
   transition-timing-function: linear; /* 마키효과!!!! */
 }
 
 #banner ul li {
-  width: 350px;
-  border: 1px solid #ff0000;
   position: relative;
 
-  overflow: hidden;
+  /* border: 1px solid #db2525; */
 }
+
 #banner ul li figure {
-  overflow: hidden; /* 넘치는 부분 숨김 */
+  width: 300px;
+  height: 500px;
+
+  box-shadow: 0 8px 15px rgba(100, 100, 100, 0.3);
 }
 
 #banner ul li figure img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  /* border: 1px solid #064d2f; */
+  object-fit: cover;
 }
 
 #banner ul li .fig-info {
@@ -1008,7 +1048,7 @@
   justify-content: space-between;
   flex-direction: column;
 
-  width: 100%;
+  width: 300px;
   height: 143px;
   background: #ffffffa2;
   padding: 20px 24px;
@@ -1027,33 +1067,6 @@
 #banner ul li .fig-info strong {
   font-size: 25px;
   font-weight: 700;
-}
-
-/* 화살표 공통 스타일 */
-#banner .slider-btns .btn span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 15px;
-  height: 15px;
-  border-left: 4px solid var(--ivory-color);
-  border-bottom: 4px solid var(--ivory-color);
-}
-
-#banner .slider-btns .btn:hover span {
-  border-left-color: var(--main-color);
-  border-bottom-color: var(--main-color);
-}
-
-/* 이전 버튼 화살표 */
-#banner .slider-btns .btn.prev span {
-  transform: translate(-40%, -50%) rotate(45deg);
-}
-
-/* 다음 버튼 화살표 */
-#banner .slider-btns .btn.next span {
-  transform: translate(-60%, -50%) rotate(-135deg);
 }
 
 /* end */

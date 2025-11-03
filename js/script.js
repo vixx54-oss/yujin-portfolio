@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalWidth = horizonScroll.offsetWidth;
         const padding = parseInt(getComputedStyle(horizonScroll).paddingLeft);
         // 여백을 줄이기 위해 200px 정도 덜 스크롤
-        return -(totalWidth - viewportWidth + padding - 2000);
+        return -(totalWidth - viewportWidth + padding - 1000);
       },
       duration: 3,
     }
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //캐러셀
     slidesPerView: 5, //보여질 슬라이드 갯수
-    spaceBetween: 24, //슬라이드 사이 간격
+    spaceBetween: 0, //슬라이드 사이 간격
 
     // 마우스 휠 스크롤 방지
     mousewheel: false,
