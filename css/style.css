@@ -154,18 +154,16 @@
 
 .nav a {
   height: 63px;
-  background: url(../img/logo.png);
-}
-
-.nav a:hover {
-  height: 63px;
-  background: url(../img/logo.png);
-  background: var(--main-color);
+  width: 100px;
 }
 
 .nav a img {
   height: 100%;
-  background: url(../img/logo.png) 0 0 100%;
+}
+
+.nav a:hover img {
+  content: url(../img/logo.png);
+  object-fit: cover;
 }
 
 /* ======================================main */
@@ -250,8 +248,6 @@
 #about {
   height: 100vh;
 
-  background: var(--black-color);
-
   display: flex;
   align-items: center;
 }
@@ -260,7 +256,7 @@
   display: flex;
   justify-content: space-between;
 
-  color: var(--ivory-color);
+  color: var(--black-color);
 }
 
 #about .leeyujin {
@@ -281,7 +277,7 @@
 
 #about .leeyujin dl dt {
   font-family: var(--main-font);
-  font-size: 20px;
+  font-size: 30px;
 }
 
 #about .leeyujin dl dd {
@@ -308,7 +304,7 @@
   content: "";
   position: absolute;
 
-  background: url(../img/pepersimmon-i-seed.png) 50% 50% no-repeat;
+  background: url(../img/pepersimmon-i-seed-m.png) 50% 50% no-repeat;
   background-size: contain;
   left: -40%;
   bottom: 0%;
@@ -464,7 +460,7 @@
 
   position: relative;
   overflow: hidden;
-  height: 700px;
+  height: 600px;
   background: #f5f5f5;
 
   box-shadow: 0px 1px 20px #56565686;
@@ -512,8 +508,6 @@
 /* ===============================================craft */
 
 #craft {
-  background: var(--black-color);
-
   text-align: center;
 
   /* border: 15px solid #03e461; */
@@ -543,7 +537,7 @@
 #craft .living {
   height: 100vh;
 
-  color: var(--ivory-color);
+  color: var(--black-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -579,7 +573,7 @@
 #craft .craft-wrap figure {
   flex-shrink: 0; /* 크기고정 */
   width: 500px;
-  aspect-ratio: 4/5; /* 비율 */
+  aspect-ratio: 4.1/5; /* 비율 */
 }
 
 #craft .craft-wrap figure img {
@@ -588,7 +582,7 @@
   height: 100%;
   object-fit: cover;
 
-  box-shadow: 0px 1px 20px #0000007e;
+  box-shadow: 8px 8px 20px rgba(100, 100, 100, 0.5);
 }
 
 #craft .content-foot {
