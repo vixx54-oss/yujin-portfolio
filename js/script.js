@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ScrollToPlugin
   );
 
+  // =============================== 감 로더 클릭 시 맨 위로 스크롤
+  window.scrollToTop = function () {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: 0, autoKill: false },
+      ease: "power2.out",
+    });
+  };
+
   // =============================== 커스텀 커서
   const cursor = document.querySelector(".custom-cursor");
 
@@ -16,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 호버 가능한 요소들
   const hoverElements = document.querySelectorAll(
-    "a, button, .plus, .swiper-slide"
+    "a, button, .plus, .swiper-slide, .persimmon-loader"
   );
 
   hoverElements.forEach((el) => {
@@ -44,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.from(paths, {
     drawSVG: "0%",
     delay: 0.6,
-    duration: 0.6, /* 감 그려지는 시간 */
+    duration: 0.6 /* 감 그려지는 시간 */,
     stagger: 0.3,
     ease: "power1.inOut",
     repeat: "-1",
@@ -78,31 +87,35 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("ScrollSmoother init failed:", e);
   }
   const nav = document.querySelector(".nav");
+  const persimmonLoader = document.querySelector(".persimmon-loader");
   const aboutSection = document.getElementById("about");
   let lastScrollY = window.scrollY;
 
-  // 초기에 nav 숨기기
+  // 초기에 nav와 감 로더 숨기기
   nav.style.transform = "translateY(-100%)";
 
   window.addEventListener("scroll", function () {
     const aboutTop = aboutSection.offsetTop;
     const currentScrollY = window.scrollY;
 
-    // about 섹션 이전에는 nav 숨기기
+    // about 섹션 이전에는 nav와 감 로더 숨기기
     if (currentScrollY < aboutTop - 100) {
       nav.style.transform = "translateY(-100%)";
+      persimmonLoader.classList.remove("show");
       return;
     }
 
     // 스크롤 방향 확인
     if (currentScrollY < lastScrollY) {
-      // 위로 스크롤: nav 보이기
+      // 위로 스크롤: nav와 감 로더 보이기
       nav.style.transform = "translateY(0)";
       nav.style.opacity = "1";
+      persimmonLoader.classList.add("show");
     } else {
-      // 아래로 스크롤: nav 숨기기
+      // 아래로 스크롤: nav와 감 로더 숨기기
       nav.style.transform = "translateY(-100%)";
       nav.style.opacity = "0";
+      persimmonLoader.classList.remove("show");
     }
 
     lastScrollY = currentScrollY;
