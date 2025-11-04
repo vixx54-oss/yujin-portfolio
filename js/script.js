@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.from(paths, {
     drawSVG: "0%",
     delay: 0.6,
-    duration: 1.8,
+    duration: 0.6, /* 감 그려지는 시간 */
     stagger: 0.3,
     ease: "power1.inOut",
     repeat: "-1",

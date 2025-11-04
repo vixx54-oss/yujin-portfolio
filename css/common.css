@@ -92,9 +92,9 @@ section {
 
 /* custom-cursor */
 .custom-cursor {
-  width: 25px;
-  height: 25px;
-  border: 5px solid #ea6f38;
+  width: 20px;
+  height: 20px;
+  background: var(--main-color);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
