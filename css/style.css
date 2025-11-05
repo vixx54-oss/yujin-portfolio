@@ -123,23 +123,19 @@ svg circle {
 /* +++++++++++++++++++++++++++++++ */
 
 .plus {
-  font-weight: 600;
-  color: #fff;
+  font-weight: 500;
+  color: var(--black-color);
 
-  background: var(--black-color);
+  background: #fff;
+  border: 3px solid var(--black-color);
   border-radius: 50px;
-  padding: 20px 40px;
+  padding: 12px 24px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
 
-  transition: 0.5s;
-}
-
-.plus::after {
-  content: none;
   transition: 0.5s;
 }
 
@@ -148,27 +144,21 @@ svg circle {
   display: inline-block;
   width: 16px;
   height: 16px;
-
-  background-image: linear-gradient(#fff), linear-gradient(#fff);
-  background-size: 2.5px 100%, 100% 2.5px;
+  background-image: url(../img/plus-b.png);
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   flex: 0 0 auto;
+  transition: 0.5s;
 }
 
-/* hover state: 텍스트 색상을 메인 컬러로 변경, 배경은 아이보리로 바꿔 가독성 유지 */
 .plus:hover {
-  color: var(--black-color);
-  background: #fff;
-  border: 3px solid var(--black-color);
+  background: var(--black-color);
 }
-
 .plus:hover::after {
-  /* 아이콘 색상을 블랙 컬러로 변경 */
-  background-image: linear-gradient(var(--black-color)),
-    linear-gradient(var(--black-color));
+  content: "";
+  background-image: url(../img/plus.png);
 }
-
 /* =====================================nav */
 .nav {
   position: fixed;
@@ -682,26 +672,16 @@ svg circle {
 }
 
 #craft .plus {
-  color: var(--black-color);
   background: var(--ivory-color);
-  border: 3px solid var(--black-color);
-}
-
-#craft .plus::after {
-  background-image: linear-gradient(var(--black-color)),
-    linear-gradient(var(--black-color));
 }
 
 #craft .plus:hover {
-  color: var(--main-color);
   background: var(--black-color);
 }
-
 #craft .plus:hover::after {
-  background-image: linear-gradient(var(--main-color)),
-    linear-gradient(var(--main-color));
+  content: "";
+  background-image: url(../img/plus.png);
 }
-
 /* ==================================textile */
 #textile {
   background: #fff;
@@ -795,8 +775,7 @@ svg circle {
   display: flex;
   align-items: top;
   justify-content: top;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 20px;
   opacity: 1;
   transition: opacity 0.6s;
   pointer-events: none;

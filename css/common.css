@@ -26,7 +26,7 @@ body {
   line-height: 1.5;
   text-transform: capitalize;
   font-family: "pretendard";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--black-color);
 }
@@ -59,18 +59,18 @@ address {
 
 h3 {
   font-family: "EutmanGungseo";
-  font-size: 82px;
+  font-size: 75px;
 
   color: var(--main-color);
 }
 
 h4 {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
 }
 
 h5 {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -92,8 +92,8 @@ section {
 
 /* custom-cursor */
 .custom-cursor {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: var(--main-color);
   border-radius: 50%;
   position: fixed;
