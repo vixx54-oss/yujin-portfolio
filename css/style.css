@@ -258,12 +258,12 @@ svg circle {
   font-size: 150px;
   font-weight: 500;
 
-  line-height: 1;
+  line-height: 1.2;
 }
 
 #hero .visual-title h4 {
   font-family: var(--main-font);
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 200;
 }
 
@@ -272,7 +272,7 @@ svg circle {
   align-items: flex-end;
   justify-content: space-between;
 
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 #hero figure svg {
@@ -288,7 +288,7 @@ svg circle {
 
   flex-direction: column;
 
-  gap: 50px;
+  gap: 30px;
 }
 
 #hero figure::after {
@@ -363,30 +363,36 @@ svg circle {
   content: "";
   position: absolute;
 
-  background: url(../img/pepersimmon-i-seed-m.png) 50% 50% no-repeat;
+  background: url(../img/persimmon+i.png) 50% 50% no-repeat;
   background-size: contain;
   left: -40%;
   bottom: 0%;
   width: 250px;
   height: 250px;
-
-  z-index: 5;
 }
 
 #about .career::after {
   content: "";
   position: absolute;
+  background: url(../img/persimmon+seed.png) 50% 50% no-repeat;
+  background-size: cover;
+  width: 80px;
+  aspect-ratio: 231/201;
+  left: -45%;
+  bottom: 3%;
+  animation: tick-seed 2s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
 
-  background: url(../img/persimmon-main-w.png) 50% 50% no-repeat;
-  background-size: contain;
-
-  right: -18%;
-  bottom: -25%;
-
-  width: 700px;
-  height: 700px;
-
-  opacity: 5%;
+/* 새싹 똑딱 흔들리는 애니메이션 (11시 ↔ 1시) */
+@keyframes tick-seed {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
 }
 
 #about .career {
@@ -460,23 +466,47 @@ svg circle {
 
 #uiux .inner h3::before {
   content: "";
-  background: url(../img/persimmon-uxui.png) 50% 50% no-repeat;
+  position: absolute;
+  background: url(../img/persimmon+pc.png) 50% 50% no-repeat;
   background-size: contain;
-
-  width: 160px;
+  width: 260px;
   aspect-ratio: 573/418;
+
+  left: 50%;
+  top: -180%;
+  transform: translateX(-50%);
 }
 
+#uiux .inner h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+pcp.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 200px;
+  aspect-ratio: 405/258;
+
+  left: 50%;
+  top: -147%;
+  transform: translateX(-50%);
+  animation: swing-left-right 2.5s ease-in-out infinite;
+}
+
+/* 좌우로 흔들리는 애니메이션 */
+@keyframes swing-left-right {
+  0% {
+    transform: translateX(-30%) translateX(-63px);
+  }
+  50% {
+    transform: translateX(-32%) translateX(-15px);
+  }
+  100% {
+    transform: translateX(-30%) translateX(-63px);
+  }
+}
 #uiux .inner h3 {
-  height: 100vh;
+  text-align: center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 15px;
-
-  padding: 0 0 80px 0;
+  position: relative;
 }
 
 #uiux .uiux-wrap {
@@ -592,21 +622,61 @@ svg circle {
   height: 100vh;
   padding-bottom: 80px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  position: relative;
 }
 
 #craft h3::before {
   content: "";
-  display: block;
-
-  background: url(../img/persimmon-i-tree.png) 50% 50% no-repeat;
+  position: absolute;
+  background: url(../img/persimmon+i.png) 50% 50% no-repeat;
   background-size: contain;
-
   width: 250px;
   aspect-ratio: 778/861;
+
+  left: 50%;
+  top: -15%;
+  transform: translateX(-50%);
+  animation: sway-left-right 2.5s ease-in-out infinite;
+}
+
+/* 양옆으로 왔다갔다하는 애니메이션 */
+@keyframes sway-left-right {
+  0% {
+    transform: translateX(-30%) translateX(-75px);
+  }
+  50% {
+    transform: translateX(-40%) translateX(-10px);
+  }
+  100% {
+    transform: translateX(-30%) translateX(-75px);
+  }
+}
+
+#craft h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+tree.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 250px;
+  aspect-ratio: 778/861;
+
+  left: 35%;
+  top: -20%;
+  animation: grow-shrink 2.5s ease-in-out infinite;
+}
+
+/* 점점 커졌다 작아지는 애니메이션 */
+@keyframes grow-shrink {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.81);
+  }
 }
 
 #craft .living {
@@ -704,36 +774,54 @@ svg circle {
 
 #textile .head-info {
   color: var(--black-color);
+  position: relative;
 }
 #textile .head-info::before {
   content: "";
-  background: url(../img/persimmon-branch.png) 50% 50% no-repeat;
-  background-size: contain;
-  transform: rotate(15deg);
-
-  width: 403px;
-  height: 403px;
-
   position: absolute;
-  top: 20%;
+  background: url(../img/persimmon+branch.png) 50% 50% no-repeat;
+  transform: rotate(15deg);
+  background-size: contain;
+  width: 400px;
+  aspect-ratio: 891/504;
+  top: 180%;
   left: -30%;
 }
 
 #textile .section-head::after {
   content: "";
-  background: url(../img/persimmon-hand.png) 50% 50% no-repeat;
-  background-size: contain;
-  transform: rotate(90deg);
-
-  width: 403px;
-  height: 403px;
-
   position: absolute;
-  bottom: 0px;
-  left: 0;
+  background: url(../img/persimmon-main.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 250px;
+  aspect-ratio: 488/459;
+  top: 33%;
+  left: 50%;
+  animation: fall-down 2s ease-in infinite;
+}
+
+@keyframes fall-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(820px);
+  }
+}
+
+#textile .work-info::before {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+hand.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 400px;
+  aspect-ratio: 811/366;
+  bottom: 250%;
+  left: 0%;
 }
 
 #textile .work-info {
+  position: relative;
   display: flex;
   justify-content: flex-start;
 }
@@ -804,25 +892,36 @@ svg circle {
 }
 
 #character h3 {
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
   text-align: center;
+
+  position: relative;
+}
+
+#character h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 250px;
+  aspect-ratio: 778/861;
+
+  left: 55%;
+  top: -220%;
+  transform: translateX(-50%);
+  animation: sway-left-right 2.5s ease-in-out infinite;
 }
 
 #character h3::before {
   content: "";
-  display: block;
-
-  background: url(../img/persimmon-tree-b.png) 50% 50% no-repeat;
+  position: absolute;
+  background: url(../img/persimmon+tree+b.png) 50% 50% no-repeat;
   background-size: contain;
+  width: 250px;
+  aspect-ratio: 778/861;
 
-  width: 308px;
-  aspect-ratio: 681/672;
+  left: 37%;
+  top: -280%;
+  animation: grow-shrink 2.5s ease-in-out infinite;
 }
 
 #character .inner {
@@ -1040,26 +1139,45 @@ svg circle {
 }
 
 #banner h3 {
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
   text-align: center;
-  color: var(--main-color);
+
+  position: relative;
 }
 
 #banner h3::before {
   content: "";
-  display: block;
-
-  background: url(../img/persimmon-branch.png) 50% 50% no-repeat;
+  position: absolute;
+  background: url(../img/persimmon+branch.png) 50% 50% no-repeat;
   background-size: contain;
+  width: 400px;
+  aspect-ratio: 891/504;
+  left: -55%;
+  top: -450%;
+}
 
-  width: 308px;
-  aspect-ratio: 1036/897;
+#banner h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon-main.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 250px;
+  aspect-ratio: 488/459;
+  left: 22%;
+  top: -280%;
+  transform-origin: top center;
+  animation: pendulum-swing 1.2s ease-in-out infinite;
+}
+
+@keyframes pendulum-swing {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
 }
 
 #banner .head-info {
@@ -1160,18 +1278,48 @@ svg circle {
   text-align: center;
 }
 
-#end figure {
-  width: 320px;
+#end .end-text::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+i+h.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 141px;
+  aspect-ratio: 282/270;
+  left: 26%;
+  top: -289%;
+  transform-origin: bottom center;
+  animation: pendulum 1.2s ease-in-out infinite;
 }
 
-#end figure img {
-  width: 100%;
+@keyframes pendulum {
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+#end .end-text::before {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+i+b.png) 50% 50% no-repeat;
   background-size: contain;
+  width: 180px;
+  aspect-ratio: 360/328;
+  left: 50%;
+  top: -180%;
+  transform: translateX(-50%);
 }
 
 #end .end-text {
   color: var(--main-color);
   margin-top: 70px;
+
+  position: relative;
 }
 
 #end .end-text h4 {
