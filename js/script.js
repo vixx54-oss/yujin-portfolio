@@ -70,13 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // =========================== 네비바 js
+  let smoother; // 전역 변수로 선언
   try {
     if (
       typeof ScrollSmoother !== "undefined" &&
       document.querySelector("#smooth-wrapper") &&
       document.querySelector("#smooth-content")
     ) {
-      ScrollSmoother.create({
+      smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
         smooth: 1.3,
@@ -119,6 +120,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     lastScrollY = currentScrollY;
+  });
+
+  // 네비게이션 링크 클릭 이벤트
+  const navLinks = document.querySelectorAll(
+    ".nav a[href^='#'], .nav a[href='#hero']"
+  );
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        const targetY = targetSection.offsetTop;
+
+        if (smoother) {
+          // ScrollSmoother가 있으면 사용
+          smoother.scrollTo(targetY, false);
+        } else {
+          // ScrollSmoother가 없으면 GSAP ScrollToPlugin 사용
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: { y: targetY },
+            ease: "power2.out",
+          });
+        }
+      }
+    });
   });
 
   // =====================================*** UI/UX 카드 애니메이션 ***
