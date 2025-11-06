@@ -1,34 +1,44 @@
 @charset "UTF-8";
 
 .craft-page h3 {
-  padding-bottom: 80px;
+  margin-top: 350px;
+  text-align: center;
+  position: relative;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.craft-page h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 250px;
+  aspect-ratio: 778/861;
+
+  left: 55%;
+  top: -240%;
+  transform: translateX(-50%);
+  animation: sway-left-right 2.5s ease-in-out infinite;
 }
 
 .craft-page h3::before {
   content: "";
-  display: block;
-
-  background: url(../img/persimmon-i-tree.png) 50% 50% no-repeat;
+  position: absolute;
+  background: url(../img/persimmon+tree+b.png) 50% 50% no-repeat;
   background-size: contain;
-
   width: 250px;
   aspect-ratio: 778/861;
+
+  left: 37%;
+  top: -300%;
+  animation: grow-shrink 2.5s ease-in-out infinite;
 }
 
 .craft-page {
   padding: 180px 0;
 }
 
-.craft-page h3 {
-  text-align: center;
-}
-
 .craft-page .group {
+  margin-top: 250px;
   width: 1680px;
 
   display: flex;

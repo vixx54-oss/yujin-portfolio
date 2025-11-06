@@ -127,9 +127,9 @@ svg circle {
   color: var(--black-color);
 
   background: #fff;
-  border: 3px solid var(--black-color);
+  border: 2.5px solid var(--black-color);
   border-radius: 50px;
-  padding: 12px 24px;
+  padding: 10px 22px;
 
   display: inline-flex;
   align-items: center;
@@ -619,23 +619,22 @@ svg circle {
 }
 
 #craft h3 {
-  height: 100vh;
   padding-bottom: 80px;
 
   text-align: center;
   position: relative;
 }
 
-#craft h3::before {
+#craft h3::after {
   content: "";
   position: absolute;
-  background: url(../img/persimmon+i.png) 50% 50% no-repeat;
+  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
   background-size: contain;
   width: 250px;
   aspect-ratio: 778/861;
 
-  left: 50%;
-  top: -15%;
+  left: 55%;
+  top: -145%;
   transform: translateX(-50%);
   animation: sway-left-right 2.5s ease-in-out infinite;
 }
@@ -653,7 +652,7 @@ svg circle {
   }
 }
 
-#craft h3::after {
+#craft h3::before {
   content: "";
   position: absolute;
   background: url(../img/persimmon+tree.png) 50% 50% no-repeat;
@@ -661,8 +660,8 @@ svg circle {
   width: 250px;
   aspect-ratio: 778/861;
 
-  left: 35%;
-  top: -20%;
+  left: 40%;
+  top: -180%;
   animation: grow-shrink 2.5s ease-in-out infinite;
 }
 
@@ -710,14 +709,14 @@ svg circle {
   /* border: 3px solid #3bf789; */
   display: flex;
   flex-shrink: 0;
-  gap: 50px;
+  gap: 120px;
 
   padding-left: 500px;
 }
 
 #craft .craft-wrap figure {
   flex-shrink: 0; /* 크기고정 */
-  width: 500px;
+  width: 400px;
   aspect-ratio: 4.1/5; /* 비율 */
   position: relative;
 }
@@ -784,8 +783,8 @@ svg circle {
   background-size: contain;
   width: 400px;
   aspect-ratio: 891/504;
-  top: 180%;
-  left: -30%;
+  top: 191%;
+  left: -31%;
 }
 
 #textile .section-head::after {
@@ -793,19 +792,41 @@ svg circle {
   position: absolute;
   background: url(../img/persimmon-main.png) 50% 50% no-repeat;
   background-size: contain;
-  width: 250px;
+  width: 220px;
   aspect-ratio: 488/459;
-  top: 33%;
-  left: 50%;
-  animation: fall-down 2s ease-in infinite;
+  top: 34%;
+  left: 58%;
+  animation: persimmon-fall 7s ease-in-out infinite;
 }
 
-@keyframes fall-down {
-  0% {
-    transform: translateY(0);
+@keyframes persimmon-fall {
+  /* 0~20%: 흔들리기 */
+  0%,
+  10% {
+    transform: translateY(0) rotate(-3deg);
   }
+  5% {
+    transform: translateY(0) rotate(3deg);
+  }
+  15% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  20% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* 20~40%: 떨어지기 */
+  20% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(820px) rotate(360deg); /* 떨어지면서 한 바퀴 돌기 */
+  }
+
+  /* 40~100%: 안착 후 3초간 멈춤 (60% 시간이 멈춤) */
+  40%,
   100% {
-    transform: translateY(820px);
+    transform: translateY(820px) rotate(360deg);
   }
 }
 
@@ -816,7 +837,7 @@ svg circle {
   background-size: contain;
   width: 400px;
   aspect-ratio: 811/366;
-  bottom: 250%;
+  bottom: 290%;
   left: 0%;
 }
 
@@ -838,8 +859,8 @@ svg circle {
 }
 
 #textile ul li {
-  width: 363px;
-  height: 572px;
+  width: 357px;
+  height: 566px;
   position: relative;
   overflow: hidden;
 }
@@ -891,41 +912,10 @@ svg circle {
   );
 }
 
-#character h3 {
-  text-align: center;
-
-  position: relative;
-}
-
-#character h3::after {
-  content: "";
-  position: absolute;
-  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
-  background-size: contain;
-  width: 250px;
-  aspect-ratio: 778/861;
-
-  left: 55%;
-  top: -220%;
-  transform: translateX(-50%);
-  animation: sway-left-right 2.5s ease-in-out infinite;
-}
-
-#character h3::before {
-  content: "";
-  position: absolute;
-  background: url(../img/persimmon+tree+b.png) 50% 50% no-repeat;
-  background-size: contain;
-  width: 250px;
-  aspect-ratio: 778/861;
-
-  left: 37%;
-  top: -280%;
-  animation: grow-shrink 2.5s ease-in-out infinite;
-}
-
 #character .inner {
   text-align: center;
+
+  padding: 100px 0;
 }
 
 #character .project-wrap {
@@ -1136,6 +1126,7 @@ svg circle {
   justify-content: center;
 
   flex-direction: column;
+  margin-top: 5vh;
 }
 
 #banner h3 {
@@ -1151,8 +1142,8 @@ svg circle {
   background-size: contain;
   width: 400px;
   aspect-ratio: 891/504;
-  left: -55%;
-  top: -450%;
+  left: -50%;
+  top: -300%;
 }
 
 #banner h3::after {
@@ -1160,10 +1151,10 @@ svg circle {
   position: absolute;
   background: url(../img/persimmon-main.png) 50% 50% no-repeat;
   background-size: contain;
-  width: 250px;
+  width: 170px;
   aspect-ratio: 488/459;
-  left: 22%;
-  top: -280%;
+  left: 40%;
+  top: -131%;
   transform-origin: top center;
   animation: pendulum-swing 1.2s ease-in-out infinite;
 }
@@ -1183,6 +1174,8 @@ svg circle {
 #banner .head-info {
   color: var(--black-color);
   /* border: 5px solid #b61919; */
+
+  margin-top: 50px;
 }
 
 #banner .banner-slider {
@@ -1196,7 +1189,7 @@ svg circle {
 #banner ul {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 60px 0;
 
   /* border: 1px solid #ffd900; */
 
@@ -1212,7 +1205,7 @@ svg circle {
 
 #banner ul li figure {
   width: 300px;
-  height: 500px;
+  height: 400px;
 
   box-shadow: 0 8px 15px rgba(100, 100, 100, 0.3);
 }
@@ -1265,17 +1258,17 @@ svg circle {
     var(--ivory-color) 40%,
     var(--ivory-color) 100%
   );
-  height: 100vh;
-  padding: 220px 0;
 }
 
 #end .inner {
+  height: 80vh;
+  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   flex-direction: column;
 
-  text-align: center;
+  padding: 0 0 90px 0;
 }
 
 #end .end-text::after {
@@ -1332,4 +1325,16 @@ svg circle {
 
 #end .end-text p strong {
   font-weight: 700;
+}
+
+.space.one {
+  height: 300px;
+}
+
+.space.two {
+  height: 327px;
+}
+
+.space.three {
+  height: 200px;
 }

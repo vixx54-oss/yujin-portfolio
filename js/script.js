@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =============================== 감 로더 클릭 시 맨 위로 스크롤
   window.scrollToTop = function () {
     gsap.to(window, {
-      duration: 1,
+      duration: 0.3,
       scrollTo: { y: 0, autoKill: false },
       ease: "power2.out",
     });
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.3,
+        smooth: 0.8, // 1.3 → 0.8로 줄여서 덜 미끄럽게
         effects: true,
       });
     }
@@ -185,11 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "+=0.5"
     );
     uxCardTL.from(card, { rotateX: "-180deg" });
-    uxCardTL.from(card, { y: 200 }, "-=0.7");
+    uxCardTL.from(card, { y: 900 }, "-=0.7");
 
     // 이전 카드 페이드 아웃 (첫 번째 카드 제외)
     if (index > 0) {
-      uxCardTL.to(uxCards[index - 1], { autoAlpha: 0, duration: 0.3 }, "-=0.3");
+      uxCardTL.to(uxCards[index - 1], { autoAlpha: 0, duration: 0.5 }, "-=0.3");
     }
   });
   // 3초의 지연시간 추가
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: ".uiux-wrap",
     start: "top 0%",
     // +=: start 지점을 기준으로 상대적인 거리를 추가
-    end: `+=${uxCardTL.duration() * 400}`,
+    end: `+=${uxCardTL.duration() * 900}`,
     markers: true,
     pin: true, // 영역 고정
     scrub: 1,
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: "#craft .living",
     start: "top 0",
-    end: () => `+=${horizonTL.duration() * 400}`,
+    end: () => `+=${horizonTL.duration() * 900}`,
     markers: true,
     pin: true,
     scrub: 1,
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aicards = gsap.utils.toArray("#character .ai .ai-about > li");
   aicards.forEach((aicard, index) => {
     aicardTL.from(aicard, { autoAlpha: 0, rotateX: "-180deg" });
-    aicardTL.from(aicard, { y: 200 }, "-=0.7");
+    aicardTL.from(aicard, { y: 900 }, "-=0.7");
   });
 
   aicardTL.to({}, { duration: 0.5 });
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: "#character .project.ai",
     start: "top top",
-    end: `+=${aicardTL.duration() * 500}`,
+    end: `+=${aicardTL.duration() * 900}`,
     markers: true,
     pin: true,
     pinSpacing: true, // ✅ 추가! - pin 영역만큼 공간 확보
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const macards = gsap.utils.toArray("#character .mafra .mafra-about > li");
   macards.forEach((macard, index) => {
     macardTL.from(macard, { autoAlpha: 0, rotateX: "-180deg" });
-    macardTL.from(macard, { y: 200 }, "-=0.7");
+    macardTL.from(macard, { y: 900 }, "-=0.7");
   });
 
   macardTL.to({}, { duration: 0.5 });
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: "#character .project.mafra",
     start: "top top",
-    end: `+=${macardTL.duration() * 400}`,
+    end: `+=${macardTL.duration() * 900}`,
     markers: true,
     pin: true,
     pinSpacing: true, // ✅ 추가! - pin 영역만큼 공간 확보
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
       disableOnInteraction: false,
       waitForTransition: true, // 트랜지션이 끝날 때까지 대기
     },
-    speed: 3000,
+    speed: 5000,
     effect: "slide", //slide,fade,cube,flip,coverflow
 
     //캐러셀
@@ -338,75 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // =====================================*** 섹션 끝에서만 전환하는 스크롤 ***
-  const sections = document.querySelectorAll("section");
-  let isScrolling = false;
+  // =====================================*** 자유로운 스크롤 ***
+  // 섹션 스크롤 기능을 비활성화하고 자유롭게 스크롤 가능하게 함
 
-  window.addEventListener("wheel", (e) => {
-    if (isScrolling) return;
-
-    const currentScroll = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // 현재 어느 섹션에 있는지 찾기
-    let currentSection = null;
-    let currentIndex = -1;
-
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 100 && rect.bottom > 100) {
-        currentSection = section;
-        currentIndex = index;
-      }
-    });
-
-    if (!currentSection) return;
-
-    const sectionRect = currentSection.getBoundingClientRect();
-    const sectionTop = sectionRect.top;
-    const sectionBottom = sectionRect.bottom;
-
-    // 아래로 스크롤
-    if (e.deltaY > 0) {
-      // 섹션의 끝에 도달했을 때만 다음 섹션으로
-      if (sectionBottom <= windowHeight + 10) {
-        const nextSection = sections[currentIndex + 1];
-        if (nextSection) {
-          e.preventDefault();
-          isScrolling = true;
-
-          // 다음 섹션으로 부드럽게 이동
-          window.scrollTo({
-            top: nextSection.offsetTop,
-            behavior: "smooth",
-          });
-
-          setTimeout(() => {
-            isScrolling = false;
-          }, 800);
-        }
-      }
-    }
-    // 위로 스크롤
-    else {
-      // 섹션의 시작에 도달했을 때만 이전 섹션으로
-      if (sectionTop >= -10) {
-        const prevSection = sections[currentIndex - 1];
-        if (prevSection) {
-          e.preventDefault();
-          isScrolling = true;
-
-          // 이전 섹션으로 부드럽게 이동
-          window.scrollTo({
-            top: prevSection.offsetTop,
-            behavior: "smooth",
-          });
-
-          setTimeout(() => {
-            isScrolling = false;
-          }, 800);
-        }
-      }
-    }
-  });
+  // 기존 섹션별 스크롤 대신 자연스러운 스크롤 허용
 });
