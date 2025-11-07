@@ -166,7 +166,13 @@ svg circle {
   left: 0;
   right: 0;
   padding: 10px 120px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(2px);
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
   z-index: 1000;
   transform: translateY(-100%);
   transform: translateY(-100%);
@@ -935,11 +941,11 @@ svg circle {
   justify-content: center;
   flex-direction: column;
 
-  gap: 70px;
+  gap: 30px;
 
   /* border: 5px solid #00b7ff; */
 
-  height: 100vh;
+  height: 105vh;
 }
 
 #character .head-info {

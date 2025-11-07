@@ -92,11 +92,10 @@ section {
 
 /* custom-cursor */
 .custom-cursor {
-  background: url(../img/favicon.png) 50% 50% no-repeat;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  transform: rotate(50deg);
+  background: var(--main-color);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
   position: fixed;
   pointer-events: none;
   z-index: 9999;

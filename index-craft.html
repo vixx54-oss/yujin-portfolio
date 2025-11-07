@@ -8,19 +8,12 @@
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/style-craft.css" />
-    <style>
-      /* craft 페이지에서 네비바 항상 보이게 */
-      .nav {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
@@ -33,21 +26,19 @@
   </head>
 
   <body>
+    <!-- 위로가기 버튼 -->
+    <div class="persimmon-loader" onclick="scrollToTop()">
+      <img src="./img/arrow.png" alt="위로가기" class="arrow-img" />
+    </div>
+
     <!-- 커스텀 커서 -->
     <div class="custom-cursor"></div>
 
     <!-- s:nav -->
     <nav class="nav">
       <div class="inner">
-        <ul>
-          <li><a href="./index.html#uiux">UI / UX</a></li>
-          <li><a href="./index.html#craft">Craft</a></li>
-          <li><a href="./index.html#textile">Textile</a></li>
-          <li><a href="./index.html#character">Character</a></li>
-          <li><a href="./index.html#banner">Banner</a></li>
-        </ul>
         <a href="./index.html#hero">
-          <img src="./img/logo.png" alt="로고" />
+          <img src="./img/logo-b.png" alt="로고" />
         </a>
       </div>
     </nav>
