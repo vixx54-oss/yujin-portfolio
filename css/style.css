@@ -583,7 +583,7 @@ svg circle {
 
   position: absolute;
   top: 50%;
-  left: 100px;
+  left: 180px;
   transform: translateY(-50%);
   /* background: pink; */
 
@@ -610,6 +610,24 @@ svg circle {
   border-radius: 70px;
 }
 
+#uiux p {
+  color: #fff;
+}
+
+#uiux .plus {
+  border: none;
+  background: var(--ivory-color);
+}
+
+#uiux .plus:hover {
+  background: var(--black-color);
+  border: 3px solid var(--main-color);
+}
+
+#uiux .plus:hover::after {
+  content: "";
+  background-image: url(../img/plus.png);
+}
 /* ===============================================craft */
 
 #craft {
