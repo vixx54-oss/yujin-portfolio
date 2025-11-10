@@ -1309,7 +1309,7 @@ svg circle {
 
   width: 300px;
   height: 140px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.753);
   padding: 20px 24px;
 
   transform: translateY(100%); /* 아래로 숨김 */
@@ -1326,6 +1326,33 @@ svg circle {
 #banner ul li .fig-info strong {
   font-size: 25px;
   font-weight: 700;
+}
+
+/* 배너 페이지네이션 스타일 */
+#banner .swiper-pagination {
+  position: relative;
+  bottom: auto;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#banner .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ddd;
+  opacity: 1;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+#banner .swiper-pagination-bullet-active {
+  background: var(--main-color);
+  transform: scale(1.2);
+}
+
+#banner .swiper-pagination-bullet:hover {
+  background: var(--main-color);
+  opacity: 0.7;
 }
 
 /* end */

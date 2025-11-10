@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loop: true,
     autoplay: {
       delay: 0,
-      pauseOnMouseEnter: true, // 마우스 호버 시 자동재생 멈춤
+      pauseOnMouseEnter: false, // 마우스 호버 시에도 계속 재생
       disableOnInteraction: false,
       waitForTransition: true, // 트랜지션이 끝날 때까지 대기
     },
@@ -330,6 +330,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 마우스 휠 스크롤 방지
     mousewheel: false,
     allowTouchMove: false, // 터치/드래그 방지
+
+    // Pagination
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
 
     // Navigation arrows
     navigation: {
