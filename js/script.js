@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     start: "top 0%",
     // +=: start 지점을 기준으로 상대적인 거리를 추가
     end: `+=${uxCardTL.duration() * 900}`,
-    markers: true,
+    // markers: true,
     pin: true, // 영역 고정
     scrub: 1,
 
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: "#craft .living",
     start: "top 0",
     end: () => `+=${horizonTL.duration() * 900}`,
-    markers: true,
+    // markers: true,
     pin: true,
     scrub: 1,
     animation: horizonTL,
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: "#character .project.ai",
     start: "top top",
     end: `+=${aicardTL.duration() * 900}`,
-    markers: true,
+    // markers: true,
     pin: true,
     pinSpacing: true, // ✅ 추가! - pin 영역만큼 공간 확보
     scrub: 1,
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: "#character .project.mafra",
     start: "top top",
     end: `+=${macardTL.duration() * 900}`,
-    markers: true,
+    // markers: true,
     pin: true,
     pinSpacing: true, // ✅ 추가! - pin 영역만큼 공간 확보
     scrub: 1,

@@ -309,6 +309,26 @@ svg circle {
   opacity: 50%;
 }
 
+#hero .plus {
+  border: none;
+  background: var(--ivory-color);
+  border: 3px solid var(--main-color);
+  color: var(--main-color);
+}
+
+#hero .plus::after {
+  content: "";
+  background-image: url(../img/plus.png);
+}
+
+#hero .plus:hover {
+  background: var(--black-color);
+  border: none;
+}
+
+#hero .plus:hover::after {
+  content: "";
+}
 /* ============================================about */
 #about {
   height: 100vh;
