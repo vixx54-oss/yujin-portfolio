@@ -323,13 +323,37 @@ document.addEventListener("DOMContentLoaded", () => {
     speed: 5000,
     effect: "slide", //slide,fade,cube,flip,coverflow
 
-    //캐러셀
-    slidesPerView: 5, //보여질 슬라이드 갯수
-    spaceBetween: 0, //슬라이드 사이 간격
+    //캐러셀 - 반응형
+    slidesPerView: "auto", //자동으로 슬라이드 갯수 계산
+    spaceBetween: 50, //슬라이드 사이 간격
 
     // 마우스 휠 스크롤 방지
     mousewheel: false,
     allowTouchMove: false, // 터치/드래그 방지
+
+    // 슬라이드가 잘리지 않도록
+    watchOverflow: true,
+    centeredSlides: false,
+
+    // 반응형 breakpoints
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 25,
+      },
+      1440: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+      },
+    },
 
     // Pagination
     pagination: {
@@ -344,6 +368,26 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".slider-btns .btn.prev",
     },
   });
+
+  // 맨 처음/맨 끝 버튼 기능
+  const firstBtn = document.querySelector(".banner-btn.first");
+  const lastBtn = document.querySelector(".banner-btn.last");
+
+  if (firstBtn) {
+    firstBtn.addEventListener("click", () => {
+      topSwiper.slideToLoop(0, 500); // 맨 처음 슬라이드로 이동 (0.5초 애니메이션)
+    });
+  }
+
+  if (lastBtn) {
+    lastBtn.addEventListener("click", () => {
+      // 실제 슬라이드 개수 가져오기 (li 개수)
+      const totalSlides = document.querySelectorAll(
+        "#banner .swiper-slide:not(.swiper-slide-duplicate)"
+      ).length;
+      topSwiper.slideToLoop(totalSlides - 1, 500); // 맨 마지막 슬라이드로 이동 (0.5초 애니메이션)
+    });
+  }
 
   // =====================================*** 자유로운 스크롤 ***
   // 섹션 스크롤 기능을 비활성화하고 자유롭게 스크롤 가능하게 함
