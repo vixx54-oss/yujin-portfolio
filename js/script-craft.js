@@ -37,6 +37,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // =========================== ScrollSmoother 적용
+  let smoother;
+  try {
+    if (
+      typeof ScrollSmoother !== "undefined" &&
+      document.querySelector("#smooth-wrapper") &&
+      document.querySelector("#smooth-content")
+    ) {
+      smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 0.2,
+        effects: true,
+      });
+    }
+  } catch (e) {
+    console.warn("ScrollSmoother init failed:", e);
+  }
+
   // =============================== 네비바와 위로가기 버튼 스크롤 동작
   const nav = document.querySelector(".nav");
   const persimmonLoader = document.querySelector(".persimmon-loader");

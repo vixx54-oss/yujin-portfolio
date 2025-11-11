@@ -194,9 +194,9 @@ svg circle {
 
 .nav ul a {
   background: var(--black-color);
-  padding: 15px 20px;
+  padding: 10px 22px;
   border-radius: 50px;
-
+  border: 3px solid var(--black-color);
   color: var(--ivory-color);
 
   transition: 0.5s;
@@ -204,7 +204,7 @@ svg circle {
 
 .nav ul a:hover {
   background: var(--ivory-color);
-  padding: 10px 20px;
+  padding: 10px 22px;
   border: 3px solid var(--main-color);
   border-radius: 50px;
 

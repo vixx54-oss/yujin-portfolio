@@ -49,19 +49,31 @@
   padding: 180px 0;
 }
 
-.craft-page .group {
-  margin-top: 250px;
+.craft-page .group:first-child {
   width: 1680px;
-
+  margin-top: 200px;
   display: flex;
   align-items: center;
-
-  padding: 50px 0;
 
   /* 스크롤 애니메이션을 위한 초기 설정 */
   opacity: 0;
   transform: translateY(80px);
   transition: all 0.8s ease-out;
+}
+
+.craft-page .group {
+  margin-top: 0px;
+  width: 1680px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 80px 0;
+
+  /* 스크롤 애니메이션을 위한 초기 설정 */
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.5s ease-out;
 }
 
 /* 스크롤 시 보여지는 애니메이션 */
@@ -93,8 +105,8 @@
 }
 
 .craft-page figure {
-  width: 380px;
-  height: 428px;
+  width: 480px;
+  height: 580px;
   overflow: hidden;
   border-radius: 50px;
 }
@@ -111,5 +123,5 @@
 }
 
 .craft-page dl dd {
-  margin-top: 30px;
+  margin-top: 80px;
 }
