@@ -18,31 +18,40 @@
   position: relative;
 }
 
-.craft-page h3::after {
-  content: "";
-  position: absolute;
-  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
-  background-size: contain;
-  width: 250px;
-  aspect-ratio: 778/861;
-
-  left: 55%;
-  top: -240%;
-  transform: translateX(-50%);
-  animation: sway-left-right 2.5s ease-in-out infinite;
-}
-
 .craft-page h3::before {
   content: "";
   position: absolute;
-  background: url(../img/persimmon+tree+b.png) 50% 50% no-repeat;
+  background: url(../img/persimmon+branch.png) 50% 50% no-repeat;
   background-size: contain;
-  width: 250px;
-  aspect-ratio: 778/861;
-
-  left: 37%;
+  width: 380px;
+  aspect-ratio: 891/504;
+  left: 29%;
   top: -300%;
-  animation: grow-shrink 2.5s ease-in-out infinite;
+}
+
+.craft-page h3::after {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon-main.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 170px;
+  aspect-ratio: 488/459;
+  left: 44%;
+  top: -140%;
+  transform-origin: top center;
+  animation: pendulum-swing 1.2s ease-in-out infinite;
+}
+
+@keyframes pendulum-swing {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
 }
 
 .craft-page {

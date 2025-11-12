@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 스크롤과 연동, 독립형으로 구현
   ScrollTrigger.create({
     trigger: ".uiux-wrap",
-    start: "top 0%",
+    start: "top -3%",
     // +=: start 지점을 기준으로 상대적인 거리를 추가
     end: `+=${uxCardTL.duration() * 900}`,
     // markers: true,
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //스크롤 연동: 독립형
   ScrollTrigger.create({
     trigger: "#craft .living",
-    start: "top 0",
+    start: "top -3%",
     end: () => `+=${horizonTL.duration() * 900}`,
     // markers: true,
     pin: true,
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // AI 스크롤 트리거
   ScrollTrigger.create({
     trigger: "#character .project.ai",
-    start: "top top",
+    start: "top -3%",
     end: `+=${aicardTL.duration() * 900}`,
     // markers: true,
     pin: true,
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // MAFRA 스크롤 트리거
   ScrollTrigger.create({
     trigger: "#character .project.mafra",
-    start: "top top",
+    start: "top -3%",
     end: `+=${macardTL.duration() * 900}`,
     // markers: true,
     pin: true,
@@ -387,6 +387,130 @@ document.addEventListener("DOMContentLoaded", () => {
       ).length;
       topSwiper.slideToLoop(totalSlides - 1, 500); // 맨 마지막 슬라이드로 이동 (0.5초 애니메이션)
     });
+  }
+
+  // =====================================*** 특정 섹션에서만 떠다니는 텍스트 표시 ***
+  function initFloatingText() {
+    const globalFloatingText = document.querySelector(".global-floating-text");
+    if (!globalFloatingText) return;
+
+    const targetSections = ["uiux", "craft", "character"];
+
+    function showFloatingText() {
+      try {
+        globalFloatingText.style.display = "block";
+        globalFloatingText.style.opacity = "1";
+      } catch (error) {
+        console.warn("Error showing floating text:", error);
+      }
+    }
+
+    function hideFloatingText() {
+      try {
+        globalFloatingText.style.opacity = "0";
+        setTimeout(() => {
+          if (globalFloatingText && globalFloatingText.style.opacity === "0") {
+            globalFloatingText.style.display = "none";
+          }
+        }, 300);
+      } catch (error) {
+        console.warn("Error hiding floating text:", error);
+      }
+    }
+
+    function checkFloatingTextVisibility() {
+      try {
+        let shouldShowText = false;
+
+        // 스크롤 트리거 영역들의 설정 (실제 코드의 start 값과 동일하게)
+        const scrollTriggerAreas = [
+          {
+            triggerSelector: ".uiux-wrap",
+            startOffset: -0.05, // "top -5%" = -5%
+          },
+          {
+            triggerSelector: "#craft .living",
+            startOffset: -0.05, // "top -5" = 약 -5px (거의 0%와 같음)
+          },
+          {
+            triggerSelector: "#character .project.ai",
+            startOffset: -0.03, // "top -3%" = -3%
+          },
+          {
+            triggerSelector: "#character .project.mafra",
+            startOffset: -0.03, // "top -3%" = -3%
+          },
+        ];
+
+        const windowHeight = window.innerHeight;
+        const currentScrollY = window.pageYOffset;
+
+        // 각 스크롤 트리거 영역 확인
+        scrollTriggerAreas.forEach((area) => {
+          const element = document.querySelector(area.triggerSelector);
+          if (element) {
+            const elementRect = element.getBoundingClientRect();
+            const elementTop = elementRect.top + currentScrollY;
+
+            // 스크롤 트리거 시작 지점 계산
+            const triggerStartY = elementTop + windowHeight * area.startOffset;
+
+            // 떠다니는 텍스트 표시 영역의 끝 지점을 상대적 거리의 절반으로 설정
+            // 각 ScrollTrigger의 상대적 거리를 450px로 계산 (duration * 900 / 3)
+            const floatingTextEndY = triggerStartY + 100;
+
+            // 현재 스크롤 위치가 트리거 시작점과 축소된 끝점 사이에 있으면 텍스트 표시
+            if (
+              currentScrollY >= triggerStartY &&
+              currentScrollY <= floatingTextEndY
+            ) {
+              shouldShowText = true;
+            }
+          }
+        });
+
+        // 제외할 섹션도 체크 (텍스타일)
+        const textileSection = document.getElementById("textile");
+        if (textileSection) {
+          const rect = textileSection.getBoundingClientRect();
+          // 텍스타일 섹션이 뷰포트에 보이면 텍스트 숨김
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            shouldShowText = false;
+          }
+        }
+
+        // 텍스트 표시/숨김
+        if (shouldShowText) {
+          showFloatingText();
+        } else {
+          hideFloatingText();
+        }
+      } catch (error) {
+        console.warn("Error checking floating text visibility:", error);
+      }
+    }
+
+    function handleScroll() {
+      checkFloatingTextVisibility();
+    }
+
+    // 스크롤 이벤트 리스너 추가
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // 리사이즈 이벤트도 추가 (뷰포트 크기 변경 시)
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    // 페이지 로드 시 초기 확인
+    setTimeout(() => {
+      checkFloatingTextVisibility();
+    }, 100);
+  }
+
+  // DOM이 로드된 후 초기화
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFloatingText);
+  } else {
+    initFloatingText();
   }
 
   // =====================================*** 자유로운 스크롤 ***

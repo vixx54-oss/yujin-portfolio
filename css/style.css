@@ -323,7 +323,7 @@ svg circle {
 
 #hero .plus:hover {
   background: var(--black-color);
-  border: none;
+  border: 3px solid var(--black-color);
 }
 
 #hero .plus:hover::after {
@@ -637,6 +637,7 @@ svg circle {
 #uiux .plus {
   border: none;
   background: var(--ivory-color);
+  border: 3px solid var(--ivory-color);
 }
 
 #uiux .plus:hover {
@@ -648,6 +649,93 @@ svg circle {
   content: "";
   background-image: url(../img/plus.png);
 }
+
+/* 떠다니는 스크롤 안내 문구 */
+.floating-scroll-text {
+  position: fixed !important;
+  bottom: 50px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 9999 !important;
+  animation: float-bounce 2s ease-in-out infinite !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.floating-scroll-text p {
+  color: var(--main-color) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 15px 30px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 8px 25px rgba(234, 111, 56, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 3px solid var(--main-color) !important;
+  white-space: nowrap !important;
+  display: block !important;
+}
+
+/* 둥둥 떠다니는 애니메이션 */
+@keyframes float-bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px) scale(1);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-10px) scale(1.02);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px) scale(1.05);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-10px) scale(1.02);
+  }
+}
+
+/* 전역 떠다니는 텍스트 */
+.global-floating-text {
+  position: fixed;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  animation: global-float 2.5s ease-in-out infinite;
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.global-floating-text p {
+  color: var(--main-color);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.99);
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(234, 111, 56, 0.25);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes global-float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-12px);
+    opacity: 1;
+  }
+}
+
 /* ===============================================craft  */
 
 #craft {
@@ -677,7 +765,7 @@ svg circle {
   width: 250px;
   aspect-ratio: 778/861;
 
-  left: 55%;
+  left: 53%;
   top: -145%;
   transform: translateX(-50%);
   animation: sway-left-right 2.5s ease-in-out infinite;
@@ -701,11 +789,11 @@ svg circle {
   position: absolute;
   background: url(../img/persimmon+tree.png) 50% 50% no-repeat;
   background-size: contain;
-  width: 250px;
+  width: 240px;
   aspect-ratio: 778/861;
 
-  left: 40%;
-  top: -180%;
+  left: 38%;
+  top: -190%;
   animation: grow-shrink 2.5s ease-in-out infinite;
 }
 
@@ -1214,40 +1302,31 @@ svg circle {
   position: relative;
 }
 
-#banner h3::before {
-  content: "";
-  position: absolute;
-  background: url(../img/persimmon+branch.png) 50% 50% no-repeat;
-  background-size: contain;
-  width: 400px;
-  aspect-ratio: 891/504;
-  left: -50%;
-  top: -300%;
-}
-
 #banner h3::after {
   content: "";
   position: absolute;
-  background: url(../img/persimmon-main.png) 50% 50% no-repeat;
+  background: url(../img/persimmon+i+w.png) 50% 50% no-repeat;
   background-size: contain;
-  width: 170px;
-  aspect-ratio: 488/459;
-  left: 40%;
-  top: -131%;
-  transform-origin: top center;
-  animation: pendulum-swing 1.2s ease-in-out infinite;
+  width: 250px;
+  aspect-ratio: 778/861;
+
+  left: 65%;
+  top: -240%;
+  transform: translateX(-50%);
+  animation: sway-left-right 2.5s ease-in-out infinite;
 }
 
-@keyframes pendulum-swing {
-  0% {
-    transform: rotate(-6deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-6deg);
-  }
+#banner h3::before {
+  content: "";
+  position: absolute;
+  background: url(../img/persimmon+tree+b.png) 50% 50% no-repeat;
+  background-size: contain;
+  width: 240px;
+  aspect-ratio: 778/861;
+
+  left: -28%;
+  top: -310%;
+  animation: grow-shrink 2.5s ease-in-out infinite;
 }
 
 #banner .head-info {
