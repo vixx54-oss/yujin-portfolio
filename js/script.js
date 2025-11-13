@@ -427,6 +427,12 @@ document.addEventListener("DOMContentLoaded", () => {
       modalImg.src = img;
       modalImg.alt = "배너 상세 이미지";
 
+      // 배너 스와이퍼 일시정지
+      if (topSwiper && topSwiper.autoplay) {
+        topSwiper.autoplay.stop();
+        console.log("Banner swiper autoplay stopped");
+      }
+
       // 스크롤 완전 차단
       modal.classList.add("active");
       document.body.classList.add("modal-open");
@@ -443,6 +449,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.closeBannerModal = function () {
     const modal = document.getElementById("bannerModal");
     if (modal) {
+      // 배너 스와이퍼 재시작
+      if (topSwiper && topSwiper.autoplay) {
+        topSwiper.autoplay.start();
+        console.log("Banner swiper autoplay restarted");
+      }
+
       modal.classList.remove("active");
       document.body.classList.remove("modal-open");
       document.documentElement.classList.remove("modal-open");
