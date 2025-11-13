@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 마우스 휠 스크롤 방지
     mousewheel: false,
-    allowTouchMove: false, // 터치/드래그 방지
+    allowTouchMove: true, // 터치/드래그 허용하되 클릭은 가능하도록
 
     // 슬라이드가 잘리지 않도록
     watchOverflow: true,
@@ -367,6 +367,11 @@ document.addEventListener("DOMContentLoaded", () => {
       nextEl: ".slider-btns .btn.next",
       prevEl: ".slider-btns .btn.prev",
     },
+
+    // 클릭 이벤트를 허용
+    preventClicks: false,
+    preventClicksPropagation: false,
+    simulateTouch: true,
   });
 
   // 맨 처음/맨 끝 버튼 기능
@@ -388,6 +393,131 @@ document.addEventListener("DOMContentLoaded", () => {
       topSwiper.slideToLoop(totalSlides - 1, 500); // 맨 마지막 슬라이드로 이동 (0.5초 애니메이션)
     });
   }
+
+  // =====================================*** 배너 모달창 기능 ***
+
+  // 모달 열기 함수
+  window.openBannerModal = function (img) {
+    console.log("openBannerModal function called with:", img);
+
+    const modal = document.getElementById("bannerModal");
+    const modalImg = document.getElementById("modalImg");
+
+    console.log("Modal elements found:", {
+      modal: !!modal,
+      modalImg: !!modalImg,
+    });
+
+    if (modal && modalImg) {
+      console.log("Opening modal with image:", img);
+
+      // 이미지 로드 에러 처리
+      modalImg.onerror = function () {
+        console.warn("Modal image failed to load:", img);
+        // 이미지 로드 실패 시 기본 배너 이미지로 대체
+        const fallbackImg = img.replace("banner-detail-", "banner-");
+        this.src = fallbackImg;
+        console.log("Using fallback image:", fallbackImg);
+      };
+
+      modalImg.onload = function () {
+        console.log("Modal image loaded successfully:", img);
+      };
+
+      modalImg.src = img;
+      modalImg.alt = "배너 상세 이미지";
+
+      // 스크롤 완전 차단
+      modal.classList.add("active");
+      document.body.classList.add("modal-open");
+      document.documentElement.classList.add("modal-open");
+      disableScroll();
+
+      console.log("Modal opened and scroll disabled");
+    } else {
+      console.error("Modal elements not found:", { modal, modalImg });
+    }
+  };
+
+  // 모달 닫기 함수
+  window.closeBannerModal = function () {
+    const modal = document.getElementById("bannerModal");
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+      document.documentElement.classList.remove("modal-open");
+      enableScroll();
+
+      console.log("Modal closed");
+    }
+  };
+
+  // 스크롤 이벤트 차단 함수들
+  function preventScroll(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+
+  function disableScroll() {
+    // 마우스 휠 차단
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    // 터치 이동 차단
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+    // 키보드 스크롤 차단
+    window.addEventListener("keydown", function (e) {
+      if ([32, 33, 34, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  function enableScroll() {
+    // 이벤트 리스너 제거
+    window.removeEventListener("wheel", preventScroll);
+    window.removeEventListener("touchmove", preventScroll);
+  }
+
+  // 모달 이벤트 리스너 설정
+  function initBannerModal() {
+    const modal = document.getElementById("bannerModal");
+
+    if (!modal) {
+      console.error("Banner modal not found!");
+      return;
+    }
+
+    // ESC 키로 닫기
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        window.closeBannerModal();
+      }
+    });
+
+    console.log("Banner modal initialized successfully!");
+  }
+
+  // 모달 초기화
+  initBannerModal();
+
+  // 테스트 함수 - 콘솔에서 호출 가능
+  window.testModal = function () {
+    console.log("Testing modal...");
+    const modal = document.getElementById("bannerModal");
+    if (modal) {
+      modal.classList.add("active");
+      console.log("Modal should be visible now");
+    } else {
+      console.error("Modal not found!");
+    }
+  };
+
+  // 페이지 로드 완료 후 모달 기능 확인
+  console.log("Banner modal functions loaded successfully!");
+  console.log("Available functions:", {
+    openBannerModal: typeof window.openBannerModal,
+    closeBannerModal: typeof window.closeBannerModal,
+  });
 
   // =====================================*** 특정 섹션에서만 떠다니는 텍스트 표시 ***
   function initFloatingText() {
