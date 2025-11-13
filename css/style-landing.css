@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/* 모든 요소의 기본 여백 제거 및 화면 꽉 채우기 */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* figure와 img를 화면 크기에 맞게 설정 */
+figure,
+figure img {
+  position: relative;
+  /* 뷰포트(브라우저 화면)의 너비와 높이 100%로 설정 */
+  width: 100vw;
+  z-index: 1;
+}
+
+cursor {
+  z-index: 100;
+}
+
+figure {
+  position: relative;
+}
+
+/* 하단 버튼 스타일 */
+.landing-btn {
+  position: absolute;
+  bottom: 400px;
+  right: 10%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  padding: 14px 26px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333333;
+  background: #ffffff;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+
+  transition: 0.3s;
+  animation: bounce 2s ease-in-out infinite;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.landing-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  animation: none;
+}
+
+.landing-btn::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url(../img/plus-b.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  flex: 0 0 auto;
+  transition: 0.5s;
+}
+
+.landing-btn:hover::after {
+  content: "";
+  background-image: url(../img/plus-w.png);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-30px);
+  }
+}

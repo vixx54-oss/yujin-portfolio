@@ -636,7 +636,7 @@ svg circle {
 
 #uiux .plus {
   border: none;
-  background: var(--ivory-color);
+  background: #ffffff;
   border: 3px solid var(--ivory-color);
 }
 
