@@ -660,3 +660,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 기존 섹션별 스크롤 대신 자연스러운 스크롤 허용
 });
+

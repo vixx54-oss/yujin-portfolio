@@ -611,7 +611,7 @@ svg circle {
 }
 
 #uiux ul li .project-info > figure {
-  width: 250px;
+  width: 240px;
 
   display: flex;
   flex-direction: column;
@@ -1696,3 +1696,5 @@ html.modal-open {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
+
+
