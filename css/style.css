@@ -1608,6 +1608,24 @@ svg circle {
   visibility: visible;
 }
 
+/* UI/UX 모달 */
+.uiux-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.uiux-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* 모달이 열렸을 때 body 스크롤 완전 차단 */
 body.modal-open {
   overflow: hidden !important;
@@ -1618,6 +1636,7 @@ html.modal-open {
   overflow: hidden !important;
 }
 
+/* 모달 오버레이 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1634,7 +1653,8 @@ html.modal-open {
   overflow: hidden; /* 오버플로우 차단 */
 }
 
-.modal-content {
+/* 배너 모달 컨텐츠 */
+.banner-modal .modal-content {
   position: relative;
   border-radius: 20px;
   max-width: 90vw;
@@ -1645,6 +1665,23 @@ html.modal-open {
   justify-content: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalSlideIn 0.3s ease;
+}
+
+/* UI/UX 모달 컨텐츠 */
+.uiux-modal .modal-content {
+  position: relative;
+  border-radius: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+  margin: 20px;
 }
 
 @keyframes modalSlideIn {
@@ -1658,8 +1695,9 @@ html.modal-open {
   }
 }
 
+/* 모달 닫기 버튼 */
 .modal-close {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   width: 40px;
@@ -1667,7 +1705,7 @@ html.modal-open {
   background: var(--black-color);
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10;
+  z-index: 9999;
   transition: 0.3s;
 
   display: flex;
@@ -1685,16 +1723,21 @@ html.modal-open {
   transform: scale(1.1);
 }
 
-/* 모달 이미지 스타일 */
-.modal-content #modalImg {
-  max-width: 80vw;
-  max-height: 80vh;
+/* 배너 모달 이미지 */
+.banner-modal .modal-content #modalImg {
+  display: block;
+  max-width: 90vw;
   width: auto;
   height: auto;
-  object-fit: contain;
-  border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 }
 
-
+/* UI/UX 모달 이미지 */
+.uiux-modal .modal-content #uiuxModalImg {
+  display: block;
+  max-width: 90vw;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}

@@ -89,6 +89,22 @@
       </div>
     </div>
 
+    <!-- UI/UX 모달창 -->
+    <div class="uiux-modal" id="uiuxModal">
+      <div class="modal-overlay" onclick="closeUiuxModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+          <button class="modal-close" onclick="closeUiuxModal()">
+            <img src="./img/x.png" alt="닫기" />
+          </button>
+          <img
+            id="uiuxModalImg"
+            src="./img/landing-jangsoo.png"
+            alt="UI/UX 모달 이미지"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- s:nav -->
     <nav class="nav">
       <div class="inner">
@@ -394,7 +410,7 @@
           <section class="about" id="about">
             <div class="inner">
               <div class="leeyujin">
-                <figure><img src="./img/textile5.jpg" alt="이유진" /></figure>
+                <figure><img src="./img/leeyujin.png" alt="이유진" /></figure>
                 <dl>
                   <dt>이유진</dt>
                   <dd>Lee Yu Jin</dd>
@@ -545,7 +561,10 @@
                           >Plus</a
                         >
                       </div>
-                      <a href="">
+                      <a
+                        href="#"
+                        onclick="openUiuxModal('./img/landing-jangsoo.png'); return false;"
+                      >
                         <figure class="mockup">
                           <img
                             src="./img/uiux-jangsoo-mockup.jpg"
@@ -609,7 +628,10 @@
                           >Plus</a
                         >
                       </div>
-                      <a href="">
+                      <a
+                        href="#"
+                        onclick="openUiuxModal('./img/landing-orbit.png'); return false;"
+                      >
                         <figure class="mockup">
                           <img
                             src="./img/uiux-orbit-mockup.jpg"

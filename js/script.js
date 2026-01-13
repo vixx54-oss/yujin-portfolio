@@ -466,6 +466,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 스크롤 이벤트 차단 함수들
   function preventScroll(e) {
+    // 모달 내부에서는 스크롤 허용
+    const bannerModal = document.getElementById("bannerModal");
+    const uiuxModal = document.getElementById("uiuxModal");
+
+    if (
+      bannerModal &&
+      bannerModal.classList.contains("active") &&
+      e.target.closest(".banner-modal .modal-content")
+    ) {
+      return; // 배너 모달 내부에서는 기본 동작 허용
+    }
+
+    if (
+      uiuxModal &&
+      uiuxModal.classList.contains("active") &&
+      e.target.closest(".uiux-modal .modal-content")
+    ) {
+      return; // UI/UX 모달 내부에서는 기본 동작 허용
+    }
+
     e.preventDefault();
     e.stopPropagation();
     return false;
@@ -524,11 +544,89 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // =====================================*** UI/UX 모달창 기능 ***
+
+  // UI/UX 모달 열기 함수
+  window.openUiuxModal = function (img) {
+    console.log("openUiuxModal function called with:", img);
+
+    const modal = document.getElementById("uiuxModal");
+    const modalImg = document.getElementById("uiuxModalImg");
+
+    console.log("UI/UX Modal elements found:", {
+      modal: !!modal,
+      modalImg: !!modalImg,
+    });
+
+    if (modal && modalImg) {
+      console.log("Opening UI/UX modal with image:", img);
+
+      // 이미지 로드 에러 처리
+      modalImg.onerror = function () {
+        console.warn("UI/UX Modal image failed to load:", img);
+      };
+
+      modalImg.onload = function () {
+        console.log("UI/UX Modal image loaded successfully:", img);
+      };
+
+      modalImg.src = img;
+      modalImg.alt = "UI/UX 모달 이미지";
+
+      // 스크롤 완전 차단
+      modal.classList.add("active");
+      document.body.classList.add("modal-open");
+      document.documentElement.classList.add("modal-open");
+      disableScroll();
+
+      console.log("UI/UX Modal opened and scroll disabled");
+    } else {
+      console.error("UI/UX Modal elements not found:", { modal, modalImg });
+    }
+  };
+
+  // UI/UX 모달 닫기 함수
+  window.closeUiuxModal = function () {
+    const modal = document.getElementById("uiuxModal");
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+      document.documentElement.classList.remove("modal-open");
+      enableScroll();
+
+      console.log("UI/UX Modal closed");
+    }
+  };
+
+  // UI/UX 모달 이벤트 리스너 설정
+  function initUiuxModal() {
+    const modal = document.getElementById("uiuxModal");
+
+    if (!modal) {
+      console.error("UI/UX modal not found!");
+      return;
+    }
+
+    // ESC 키로 닫기
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        window.closeUiuxModal();
+      }
+    });
+
+    console.log("UI/UX modal initialized successfully!");
+  }
+
+  // UI/UX 모달 초기화
+  initUiuxModal();
+
   // 페이지 로드 완료 후 모달 기능 확인
   console.log("Banner modal functions loaded successfully!");
   console.log("Available functions:", {
     openBannerModal: typeof window.openBannerModal,
     closeBannerModal: typeof window.closeBannerModal,
+    openUiuxModal: typeof window.openUiuxModal,
+    closeUiuxModal: typeof window.closeUiuxModal,
   });
 
   // =====================================*** 특정 섹션에서만 떠다니는 텍스트 표시 ***
@@ -661,3 +759,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 기존 섹션별 스크롤 대신 자연스러운 스크롤 허용
 });
 
+// modal-content에 마우스 휠 강제 적용
+document.querySelector(".modal-content").addEventListener("wheel", (e) => {
+  e.stopPropagation(); // 부모로 이벤트 전달 막기
+});
