@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
       x: () => {
         // 첫 번째 이미지가 뷰포트 중앙에 오도록 계산
         const viewportWidth = window.innerWidth;
-        const firstImageWidth = -800; // CSS에서 설정한 이미지 너비
+        const firstImageWidth = -100; // CSS에서 설정한 이미지 너비
         const padding = parseInt(getComputedStyle(horizonScroll).paddingLeft);
         return -(padding - (viewportWidth - firstImageWidth) / 2);
       },
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalWidth = horizonScroll.offsetWidth;
         const padding = parseInt(getComputedStyle(horizonScroll).paddingLeft);
         // 여백을 줄이기 위해 200px 정도 덜 스크롤
-        return -(totalWidth - viewportWidth + padding - 1700);
+        return -(totalWidth - viewportWidth + padding - 1000);
       },
       duration: 3,
     },
