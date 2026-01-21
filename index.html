@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -110,10 +110,10 @@
       <div class="inner">
         <ul>
           <li><a href="#uiux">UI / UX</a></li>
+          <li><a href="#banner">Banner</a></li>
           <li><a href="#craft">Craft</a></li>
           <li><a href="#textile">Textile</a></li>
           <li><a href="#character">Character</a></li>
-          <li><a href="#banner">Banner</a></li>
         </ul>
         <a href="#hero">
           <img src="./img/logo-b.png" alt="로고" />
@@ -563,7 +563,10 @@
                       </div>
                       <a
                         href="#"
-                        onclick="openUiuxModal('./img/landing-jangsoo.png'); return false;"
+                        onclick="
+                          openUiuxModal('./img/landing-jangsoo.png');
+                          return false;
+                        "
                       >
                         <figure class="mockup">
                           <img
@@ -630,7 +633,10 @@
                       </div>
                       <a
                         href="#"
-                        onclick="openUiuxModal('./img/landing-orbit.png'); return false;"
+                        onclick="
+                          openUiuxModal('./img/landing-orbit.png');
+                          return false;
+                        "
                       >
                         <figure class="mockup">
                           <img
@@ -649,6 +655,130 @@
               </div>
             </div>
           </section>
+          <div class="space three"></div>
+          <!-- s:banner -->
+          <section class="banner" id="banner">
+            <div class="promotion">
+              <div class="section-head">
+                <h3>Banner</h3>
+                <div class="head-info">
+                  <h4>Promotion Banner Design</h4>
+                  <h5>프로모션 배너 디자인</h5>
+                </div>
+              </div>
+              <div class="banner-slider">
+                <div class="banner-list swiper">
+                  <ul class="swiper-wrapper">
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-1-1.jpg')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-1.jpg"
+                          alt="버드와이저 캠핑 사은품 프로모션 배너"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>버드와이저</p>
+                        <strong>캠핑 사은품 프로모션</strong>
+                      </div>
+                    </li>
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-2-1.jpg')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-2.jpg"
+                          alt="쏘카 주행비 0원 프로모션 배너"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>쏘카</p>
+                        <strong>주행비 0원 프로모션</strong>
+                      </div>
+                    </li>
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-3-1.jpg')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-3.jpg"
+                          alt="삼척시 물닭갈비 축제 배너"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>삼척시</p>
+                        <strong>물닭갈비 축제</strong>
+                      </div>
+                    </li>
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-4-1.jpg')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-4.jpg"
+                          alt="밀카 1+1 QR 프로모션 배너"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>밀카</p>
+                        <strong>밀카 1+1 QR 프로모션</strong>
+                      </div>
+                    </li>
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-5-1.jpg')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-5.jpg"
+                          alt="쏘카 주행비 ZERO 프로모션 배너"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>써브웨이</p>
+                        <strong>써브웨이 첫구매 50% 프로모션</strong>
+                      </div>
+                    </li>
+                    <li
+                      class="swiper-slide banner-item"
+                      onclick="openBannerModal('./img/banner-6-1.png')"
+                    >
+                      <figure>
+                        <img
+                          src="./img/banner-6.jpg"
+                          alt="나이키 'YEAR-END MOVE' 프로모션"
+                        />
+                      </figure>
+                      <div class="fig-info">
+                        <p>나이키</p>
+                        <strong>'YEAR-END MOVE' 프로모션</strong>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 페이지네이션 컨트롤 -->
+                <div class="banner-controls">
+                  <button class="banner-btn first">
+                    <img src="./img/arrow-l.png" alt="오른쪽" />
+                  </button>
+                  <div class="swiper-pagination"></div>
+                  <button class="banner-btn last">
+                    <img src="./img/arrow-r.png" alt="왼쪽" />
+                  </button>
+                </div>
+                <dl class="work-info">
+                  <dt>Work Scope: 100%</dt>
+                  <dd>Tool: Photoshop, illustrator</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+          <div class="space three"></div>
           <div class="space two"></div>
           <!-- s:craft -->
           <section class="craft" id="craft">
@@ -873,129 +1003,6 @@
                     </dl>
                   </li>
                 </ol>
-              </div>
-            </div>
-          </section>
-          <div class="space three"></div>
-          <!-- s:banner -->
-          <section class="banner" id="banner">
-            <div class="promotion">
-              <div class="section-head">
-                <h3>Banner</h3>
-                <div class="head-info">
-                  <h4>Promotion Banner Design</h4>
-                  <h5>프로모션 배너 디자인</h5>
-                </div>
-              </div>
-              <div class="banner-slider">
-                <div class="banner-list swiper">
-                  <ul class="swiper-wrapper">
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-1-1.jpg')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-1.jpg"
-                          alt="버드와이저 캠핑 사은품 프로모션 배너"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>버드와이저</p>
-                        <strong>캠핑 사은품 프로모션</strong>
-                      </div>
-                    </li>
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-2-1.jpg')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-2.jpg"
-                          alt="쏘카 주행비 0원 프로모션 배너"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>쏘카</p>
-                        <strong>주행비 0원 프로모션</strong>
-                      </div>
-                    </li>
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-3-1.jpg')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-3.jpg"
-                          alt="삼척시 물닭갈비 축제 배너"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>삼척시</p>
-                        <strong>물닭갈비 축제</strong>
-                      </div>
-                    </li>
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-4-1.jpg')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-4.jpg"
-                          alt="밀카 1+1 QR 프로모션 배너"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>밀카</p>
-                        <strong>밀카 1+1 QR 프로모션</strong>
-                      </div>
-                    </li>
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-5-1.jpg')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-5.jpg"
-                          alt="쏘카 주행비 ZERO 프로모션 배너"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>써브웨이</p>
-                        <strong>써브웨이 첫구매 50% 프로모션</strong>
-                      </div>
-                    </li>
-                    <li
-                      class="swiper-slide banner-item"
-                      onclick="openBannerModal('./img/banner-6-1.png')"
-                    >
-                      <figure>
-                        <img
-                          src="./img/banner-6.jpg"
-                          alt="나이키 'YEAR-END MOVE' 프로모션"
-                        />
-                      </figure>
-                      <div class="fig-info">
-                        <p>나이키</p>
-                        <strong>'YEAR-END MOVE' 프로모션</strong>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 페이지네이션 컨트롤 -->
-                <div class="banner-controls">
-                  <button class="banner-btn first">
-                    <img src="./img/arrow-l.png" alt="오른쪽" />
-                  </button>
-                  <div class="swiper-pagination"></div>
-                  <button class="banner-btn last">
-                    <img src="./img/arrow-r.png" alt="왼쪽" />
-                  </button>
-                </div>
-                <dl class="work-info">
-                  <dt>Work Scope: 100%</dt>
-                  <dd>Tool: Photoshop, illustrator</dd>
-                </dl>
               </div>
             </div>
           </section>

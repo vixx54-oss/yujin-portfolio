@@ -9,7 +9,9 @@
   height: 60px;
   cursor: pointer;
   z-index: 1000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   transform: translateY(100px);
   opacity: 0;
   background: var(--black-color);
@@ -176,7 +178,10 @@ svg circle {
   z-index: 1000;
   transform: translateY(-100%);
   transform: translateY(-100%);
-  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background-color 0.3s;
 }
 
 .nav .inner {
@@ -1503,16 +1508,16 @@ svg circle {
 /* end */
 
 #end {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     #ffffff 0%,
     var(--ivory-color) 40%,
     var(--ivory-color) 100%
-  );
+  ); */
 }
 
 #end .inner {
-  height: 80vh;
+  height: 60vh;
   text-align: center;
   display: flex;
   align-items: center;
@@ -1600,7 +1605,9 @@ svg circle {
   z-index: 9100;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .banner-modal.active {
@@ -1618,7 +1625,9 @@ svg circle {
   z-index: 9100;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .uiux-modal.active {

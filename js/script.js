@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     DrawSVGPlugin,
     ScrollTrigger,
     ScrollSmoother,
-    ScrollToPlugin
+    ScrollToPlugin,
   );
 
   // =============================== 감 로더 클릭 시 맨 위로 스크롤
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 호버 가능한 요소들
   const hoverElements = document.querySelectorAll(
-    "a, button, .plus, .swiper-slide, .persimmon-loader"
+    "a, button, .plus, .swiper-slide, .persimmon-loader",
   );
 
   hoverElements.forEach((el) => {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "bounce.out",
       repeat: "-1",
     },
-    "<"
+    "<",
   );
 
   // =========================== 네비바 js
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 네비게이션 링크 클릭 이벤트
   const navLinks = document.querySelectorAll(
-    ".nav a[href^='#'], .nav a[href='#hero']"
+    ".nav a[href^='#'], .nav a[href='#hero']",
   );
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : uxCardTitle[index].desc;
         },
       },
-      "+=0.5"
+      "+=0.5",
     );
     uxCardTL.from(card, { rotateX: "-180deg" });
     uxCardTL.from(card, { y: 900 }, "-=0.7");
@@ -240,10 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalWidth = horizonScroll.offsetWidth;
         const padding = parseInt(getComputedStyle(horizonScroll).paddingLeft);
         // 여백을 줄이기 위해 200px 정도 덜 스크롤
-        return -(totalWidth - viewportWidth + padding - 1000);
+        return -(totalWidth - viewportWidth + padding - 1700);
       },
       duration: 3,
-    }
+    },
   );
 
   // 지연시간 추가
@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastBtn.addEventListener("click", () => {
       // 실제 슬라이드 개수 가져오기 (li 개수)
       const totalSlides = document.querySelectorAll(
-        "#banner .swiper-slide:not(.swiper-slide-duplicate)"
+        "#banner .swiper-slide:not(.swiper-slide-duplicate)",
       ).length;
       topSwiper.slideToLoop(totalSlides - 1, 500); // 맨 마지막 슬라이드로 이동 (0.5초 애니메이션)
     });

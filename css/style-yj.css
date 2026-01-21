@@ -34,7 +34,6 @@ figure img {
   transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
   transform: translate(-50%, -50%);
 
-  z
 }
 
 .custom-cursor.hover {
