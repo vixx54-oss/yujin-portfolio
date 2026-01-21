@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
       x: () => {
         // 첫 번째 이미지가 뷰포트 중앙에 오도록 계산
         const viewportWidth = window.innerWidth;
-        const firstImageWidth = -100; // CSS에서 설정한 이미지 너비
+        const firstImageWidth = -250; // CSS에서 설정한 이미지 너비
         const padding = parseInt(getComputedStyle(horizonScroll).paddingLeft);
         return -(padding - (viewportWidth - firstImageWidth) / 2);
       },
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // 지연시간 추가
-  horizonTL.to({}, { duration: 3 });
+  horizonTL.to({}, { duration: 0.5 });
 
   //스크롤 연동: 독립형
   ScrollTrigger.create({

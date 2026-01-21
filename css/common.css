@@ -39,7 +39,7 @@ body {
 
 .inner {
   width: 100%;
-  max-width: 1680px; /* 고정 폭 대신 최대 폭으로 변경하여 작은 화면에서 가로 스크롤 방지 */
+  max-width: 87.5vw; /* 고정 폭 대신 최대 폭으로 변경하여 작은 화면에서 가로 스크롤 방지 */
   margin: 0 auto;
 }
 
@@ -112,4 +112,22 @@ section {
   border-radius: 50%;
   background: rgba(234, 111, 56, 0.2);
   border: 5px solid #ea6f38;
+}
+
+@media (max-width: 1600px) {
+  .career::after {
+    display: none;
+  }
+  .career::before {
+    display: none;
+  }
+  #textile .head-info::before {
+    display: none;
+  }
+  #textile .section-head::after {
+    display: none;
+  }
+  #textile .work-info::before {
+    display: none;
+  }
 }

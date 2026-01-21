@@ -353,7 +353,7 @@ svg circle {
   display: flex;
   align-items: start;
   flex-direction: column;
-  gap: 61px;
+  gap: 3.17708vw;
 }
 
 #about .leeyujin dl {
@@ -920,7 +920,7 @@ svg circle {
   background-size: contain;
   width: 400px;
   aspect-ratio: 891/504;
-  top: 191%;
+  top: 145%;
   left: -31%;
 }
 
@@ -931,7 +931,7 @@ svg circle {
   background-size: contain;
   width: 220px;
   aspect-ratio: 488/459;
-  top: 34%;
+  top: 31%;
   left: 58%;
   animation: persimmon-fall 7s ease-in-out infinite;
 }
@@ -988,18 +988,18 @@ svg circle {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  flex: 3;
-
-  gap: 24px;
+  width: 60vw;
+  gap: 20px;
 
   /* border: 5px solid #0ca807; */
 }
 
 #textile ul li {
-  width: 357px;
-  height: 566px;
+  width: 18.59375vw;
+  height: 566/357;
   position: relative;
   overflow: hidden;
+  flex: 0 1 30%;
 }
 
 #textile ul li img {
@@ -1105,8 +1105,6 @@ svg circle {
   transform: translateX(-50%);
 }
 
-#character .ai .ai-about .intro {
-}
 #character .ai .ai-about .type {
   top: 25px;
 }
@@ -1121,7 +1119,7 @@ svg circle {
   /* border: 55px solid #4c00ff; */
 
   height: 675px;
-  width: 100%;
+  width: 87.5vw;
 }
 
 #character .mafra .mafra-about > li {
@@ -1132,8 +1130,6 @@ svg circle {
   transform: translateX(-50%);
 }
 
-#character .mafra .mafra-about .intro {
-}
 #character .mafra .mafra-about .type {
   top: 25px;
 }
@@ -1152,8 +1148,8 @@ svg circle {
 
 #character .project > ol > li {
   background: #fff;
-  width: 1680px;
-  height: 600px;
+  width: 87.5vw;
+  height: 65vh;
 
   border-radius: 70px;
 
@@ -1170,8 +1166,8 @@ svg circle {
 
 #character .project > ol > li:first-child {
   background: #fff;
-  width: 1680px;
-  height: 600px;
+  width: 87.5vw;
+  height: 65vh;
 
   border-radius: 70px;
 
