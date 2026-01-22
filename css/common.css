@@ -131,3 +131,14 @@ section {
     display: none;
   }
 }
+/* 기본값: 커서 숨김 */
+.cursor {
+  display: none;
+}
+
+/* hover 가능한 환경에서만 커스텀 커서 사용 */
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    display: block;
+  }
+}
