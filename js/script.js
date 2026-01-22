@@ -764,18 +764,6 @@ document.querySelector(".modal-content").addEventListener("wheel", (e) => {
   e.stopPropagation(); // 부모로 이벤트 전달 막기
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 },
-);
-
-document
-  .querySelectorAll(".touch-animate")
-  .forEach((el) => observer.observe(el));
+const isTouch = window.matchMedia(
+  "(hover: none) and (pointer: coarse)",
+).matches;
