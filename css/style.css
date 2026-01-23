@@ -1746,3 +1746,19 @@ html.modal-open {
   height: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+/* +++++++++++++++++++++++++++++++++++태블릿용 */
+
+/* 터치 */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* 터치 디바이스 */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

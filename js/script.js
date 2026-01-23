@@ -759,11 +759,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // 기존 섹션별 스크롤 대신 자연스러운 스크롤 허용
 });
 
-// modal-content에 마우스 휠 강제 적용
-document.querySelector(".modal-content").addEventListener("wheel", (e) => {
-  e.stopPropagation(); // 부모로 이벤트 전달 막기
-});
-
-const isTouch = window.matchMedia(
-  "(hover: none) and (pointer: coarse)",
-).matches;
+/* =======================태블릿스크롤 */
+scrub: 0.15;
